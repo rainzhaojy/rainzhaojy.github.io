@@ -1,0 +1,39 @@
+@media print {
+    .noprint{ display : none }
+    .all-75 {
+        width: 100%;
+    }
+}
+
+/*
+ * overwrite ink css style
+ */
+@media screen and (min-width: 1261px) {
+  .ink-grid {
+    padding: 0 5em;
+  }
+}
+
+@media screen and (min-width: 961px) and (max-width: 1260px) {
+  .ink-grid {
+    padding: 0 3em;
+  }
+}
+
+@media screen and (min-width: 641px) and (max-width: 960px) {
+  .ink-grid {
+    padding: 0 1.5em;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 640px) {
+  .ink-grid {
+    padding: 0 1.25em;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .ink-grid {
+    padding: 0 1em;
+  }
+}

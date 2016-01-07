@@ -1,0 +1,29 @@
+<header class="noprint">
+    <div class="ink-grid">
+        <div class="column-group horizontal-gutters">
+            <div class="all-100">
+                <div style="font-size: 40px;">Extreme Thinking</div>
+                <p>Think different, make difference</p>
+                
+                <nav class="ink-navigation noprint">
+                    <ul class="menu horizontal green">
+                        {% if page.whereami == 'index' %}
+                        <li class="active">
+                        {% else %}
+                        <li>
+                        {% endif %}
+                            <a href="/index.html">博客</a>
+                        </li>
+                        {% if page.whereami == 'about' %}
+                        <li class="active">
+                        {% else %}
+                        <li>
+                        {% endif %}
+                            <a href="/about.html">关于</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

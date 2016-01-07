@@ -1,0 +1,3 @@
+baseurl: /
+pygments: false
+markdown: rdiscount

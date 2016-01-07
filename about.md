@@ -32,3 +32,8 @@ whereami: about
 * 考虑到如果将来要租用虚拟空间部署自己的wiki，支持PHP的空间要比支持JSP的空间便宜不少
 
 13年初开始使用GitHub Pages搭建个人博客，同时继续在本机使用dokuwiki+plantuml整理文档.
+
+### Todo list
+
+* 页面自适应手机和电脑
+* 打印时代码显示不对

@@ -4,7 +4,7 @@ title: Welcome
 whereami: index
 ---
 
-<h5>欢迎访问XThinking.com</h5>
+<h5>欢迎访问我的个人站点</h5>
 <p>
 好记性不如烂笔头，曾经使用和学习过很多技术，包括Web开发, 桌面开发(C++, COM, Windows等), 移动开发(Android, iPhone等），Server开发，等等，但在长时间不使用后，很多东西就忘掉了，因此使用这个网站记录日常工作中的知识点滴。
 </p>

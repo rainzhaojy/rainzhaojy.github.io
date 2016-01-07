@@ -1,6 +1,6 @@
 ---
 layout: post
-title: GitHub Pages 常见问题
+title: GitHub Pages Q&A
 category: GitHub
 ---
 

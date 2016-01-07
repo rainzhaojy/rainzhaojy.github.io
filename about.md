@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: post
 title: About
 whereami: about
 ---

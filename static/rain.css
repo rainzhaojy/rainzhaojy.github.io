@@ -1,0 +1,39 @@
+
+.pagecontent {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+@media print {
+    .noprint{ display : none }
+    .xlarge-75 {
+        width: 100%;
+    }
+    .large-75 {
+        width: 100%;
+    }
+    .pagecontent {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+}
+
+/* 如果屏幕宽度大于1024, 则页面宽度固定为1024并居中 */
+@media screen and (min-width: 1024px) {
+  .pagecontent {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1024px;
+  }
+}
+
+/* 如果屏幕宽度小于1024, 则页面宽度为100% */
+@media screen and (max-width: 1023px) {
+  .pagecontent {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}

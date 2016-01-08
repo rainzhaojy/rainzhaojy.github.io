@@ -35,5 +35,4 @@ whereami: about
 
 ### Todo list
 
-* 页面自适应手机和电脑
-* 打印时代码显示不对
+* 打印时代码显示不对, google-code-prettify没有使用skin rain?

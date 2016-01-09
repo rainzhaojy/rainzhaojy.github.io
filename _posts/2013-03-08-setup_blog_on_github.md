@@ -6,14 +6,9 @@ category: GitHub
 
 GitHub允许大家在GitHub上创建自己的博客网站或主页，而且免费，不限流量，还可以绑定自己的域名，因此利用GitHub搭建个人主页是个不错的选择。缺点是GitHub在国外，有时可能会慢一点，另外有一些技术门槛，但对于研发人员应该问题不大。
 
-网上有很多使用GitHub搭建个人博客的文章，使用google搜索"github 博客"可以找到很多相应的介绍，我的工作机为Mac OS X 10.8，本文主要是从我的角度介绍最基本的入门几步。
+#### Install Git
 
-#### What is Git?
-
-Git是一个分布式源代码版本控制管理软件，类似的源码管理软件有CVS, Subversion等，Git由Linux大牛Linus Torvalds创立，目前被广泛用于open source项目的管理。Git相比svn有如下一些非常好的优点:
-
-* Git提供了本地代码库，用户可以先在本地开发代码并提交到本地代码库，等到修改完成时再与远程代码库同步，因此降低了网络需求
-* Git的fork and pull模式方便了code review, SVN并不自带code review功能，如果需要做code review，通常需要一个第三方软件来做，譬如用code collaborator，利用Git的fork and pull很容易做，因此Git非常适合管理Open Source项目，contributor可以将自己的改动送给project owner，由project owner review后merge到Git repo里
+Git是一个分布式源代码版本控制管理软件，类似的源码管理软件有CVS, Subversion等，目前被广泛用于open source项目的管理。
 
 关于Git的详细介绍请参考:
 

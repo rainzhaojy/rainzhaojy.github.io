@@ -36,4 +36,4 @@ category: GitHub
 * 问题14: 怎么输出表格？
     * markdown并没有表格语法，可以直接写html，可以利用ink的CSS，参考 <http://ink.sapo.pt/index.php/tables>
 * 问题15: 怎么输出table of contents?
-    * 使用javascript: <http://www.kryogenix.org/code/browser/generated-toc>, <http://projects.jga.me/toc>
+    * 使用javascript: <http://www.kryogenix.org/code/browser/generated-toc>, <http://projects.jga.me/toc>, <http://ndabas.github.io/toc/> (本站使用这个)

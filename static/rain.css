@@ -1,18 +1,13 @@
-
-.pagecontent {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+.tocbox {
+  max-width: 200px;
+  border-style: solid;
+  border-width: 1px;
+  margin: 2px 2px 2px 2px;
+  padding: 2px 2px 2px 2px;
 }
 
 @media print {
     .noprint{ display : none }
-    .xlarge-75 {
-        width: 100%;
-    }
-    .large-75 {
-        width: 100%;
-    }
     .pagecontent {
       margin-left: auto;
       margin-right: auto;

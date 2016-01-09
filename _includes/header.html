@@ -1,29 +1,22 @@
 <header class="noprint">
-    <div class="ink-grid">
-        <div class="column-group horizontal-gutters">
-            <div class="all-100">
-                <div style="font-size: 40px;">Extreme Thinking</div>
-                <p>Think different, make difference</p>
-                
-                <nav class="ink-navigation noprint">
-                    <ul class="menu horizontal green">
-                        {% if page.whereami == 'index' %}
-                        <li class="active">
-                        {% else %}
-                        <li>
-                        {% endif %}
-                            <a href="/index.html">博客</a>
-                        </li>
-                        {% if page.whereami == 'about' %}
-                        <li class="active">
-                        {% else %}
-                        <li>
-                        {% endif %}
-                            <a href="/about.html">关于</a>
-                        </li>
-                    </ul>
-                </nav>
+    <div class="topbar">
+        <div class="pagecontent">
+            <div class="ink-grid">
+                <div class="column-group horizontal-gutters">
+                    <div class="all-50">
+                        <span class="logoText"><a href="/index.html" class="logoPlaceholder">Extreme Thinking</a></span>
+                    </div>
+                    <div class="all-50">
+                    <nav class="ink-navigation">
+                        <ul class="menu horizontal black push-right">
+                            <li{% if page.whereami == 'index' %} class="active"{% endif %}><a href="/index.html"><i class="fa fa-th-large icon-white"></i> Blog</a></li>
+                            <li{% if page.whereami == 'about' %} class="active"{% endif %}><a href="/about.html"><i class="fa fa-heart icon-white"></i> About</a></li>
+                        </ul>
+                    </nav>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <div style="height:40px"></div>
 </header>

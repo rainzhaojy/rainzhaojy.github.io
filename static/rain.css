@@ -1,9 +1,46 @@
+.topbar {
+  top:0;
+  width:100%;
+  position:fixed;
+  background:#1a1a1a;
+}
+
 .tocbox {
   max-width: 200px;
   border-style: solid;
   border-width: 1px;
-  margin: 2px 2px 2px 2px;
-  padding: 2px 2px 2px 2px;
+  margin: 3px;
+  padding: 3px;
+}
+
+.icon-white {color: white}
+
+.logoText {
+  height: 40px;
+  line-height: 40px;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 130%;
+}
+
+a.logoPlaceholder:link {
+  color: white;
+  text-decoration: none;
+}
+
+a.logoPlaceholder:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a.logoPlaceholder:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+a.logoPlaceholder:active {
+  color: white;
+  text-decoration: underline;
 }
 
 @media print {

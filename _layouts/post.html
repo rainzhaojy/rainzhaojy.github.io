@@ -4,8 +4,9 @@
         {% include head.html %}
     </head>
     <body>
-        <div class="pagecontent">
         {% include header.html %}
+
+        <div class="pagecontent">
         
         <div class="ink-grid top-space">
             <div class="column-group horizontal-gutters">
@@ -44,7 +45,13 @@
         {% endif %}
 
 <!-- disqus comments -->
-<div id="disqus_thread" class="noprint"></div>
+<div class="ink-grid">
+  <div class="column-group">
+    <div class="all-100">
+      <div id="disqus_thread" class="noprint"></div>
+    </div>
+  </div>
+</div>
 <script>
 var disqus_config = function () {
 this.page.url = "http://rainzhao.com"; // Replace PAGE_URL with your page's canonical URL variable

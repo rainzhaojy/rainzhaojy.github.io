@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JavaScript单元测试框架jsTestDriver与QUnit
-category: misc
+category: javascript
 ---
 
 本文讨论一下JS代码怎么做unit test，框架jsTestDriver和QUnit的区别，怎么统计code coverage，怎么和jenkins集成等，jsTestDriver/QUnit/PhantomJS的安装与使用请参考官网上的介绍。

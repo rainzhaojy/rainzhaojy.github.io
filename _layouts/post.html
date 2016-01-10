@@ -15,7 +15,7 @@
                     <p><i class="icon-edit"></i> {{ page.date | date:"%Y-%m-%d" }}</p>
                     <hr/>
 
-                    {% if page.toc != false %}
+                    {% if page.toc == true %}
                     <div id="tocbox" class="push-right noprint tocbox">
                     <span style="font-size: 20px;">Table of Content:</span>
                     <ul id="toc"></ul>
@@ -34,8 +34,9 @@
         
         {% include footer.html %}
 
-        {% if page.toc != false %}
+        {% if page.toc == true %}
         <script>
+        console.log("generate toc");
         $('#toc').toc({headings: 'h1,h2,h3,h4'});
         if ($('#toc').children().length <= 0) {
             console.log("no toc");

@@ -26,7 +26,7 @@ git托管:
 
 #### 玩转GitHub
 
-来源于<http://segmentfault.com/q/1010000004240527>
+来源于<http://segmentfault.com/q/1010000004240527>, 参考了<http://www.yangzhiping.com/tech/github.html>
 
 Explore GitHub：看看最近在流行什么
 

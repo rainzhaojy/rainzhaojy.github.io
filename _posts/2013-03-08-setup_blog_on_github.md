@@ -2,36 +2,33 @@
 layout: post
 title: 使用GitHub搭建个人博客(1)创建一个最简单的blog
 category: GitHub
+toc: true
 ---
 
 GitHub允许大家在GitHub上创建自己的博客网站或主页，而且免费，不限流量，还可以绑定自己的域名，因此利用GitHub搭建个人主页是个不错的选择。缺点是GitHub在国外，有时可能会慢一点，另外有一些技术门槛，但对于研发人员应该问题不大。
 
-#### Install Git
+### Install Git
 
-Git是一个分布式源代码版本控制管理软件，类似的源码管理软件有CVS, Subversion等，目前被广泛用于open source项目的管理。
-
-关于Git的详细介绍请参考:
+Git是一个分布式源代码版本控制管理软件，类似的源码管理软件有CVS, Subversion等，目前被广泛用于open source项目的管理。入门请看:
 
 * <http://git-scm.com/book> - Git英文版手册，非常好的文档
-* <http://www.progit.org/book/zh> - Git中文版手册，是上面英文版的翻译
+* <http://git-scm.com/book/zh> - Git中文版手册，是上面英文版的翻译
 
-#### 在Mac上安装Git
-
-按照<http://git-scm.com/book/en/Getting-Started-Installing-Git>的说明，下载了Git OS X installer，我下载的是 <mark>git-1.8.1.3-intel-universal-snow-leopard.dmg</mark>, 双击dmg文件后按照提示一步步next即可安装成功.
+按照<http://git-scm.com/book/en/Getting-Started-Installing-Git>的说明，根据自己的电脑安装相应平台的git, 我是在mac上安装了git.
 
 接下来需要做 first-time git setup，<http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup>有 git config 的详细说明.
 
-#### GitHub
+### 注册GitHub账户
 
 GitHub 是一个商业公司，提供源代码托管服务，使用Git实现版本控制。GitHub网站使用Ruby on Rails编写而成。GitHub同时提供付费账户和为开源项目提供的免费账户，免费帐户托管的项目都是public的，目前非常多的open source项目都托管在GitHub。
 
-GitHub 号称是程序员的Facebook，不仅为程序员提供了免费源代码托管空间，还为程序员提供了一个社交平台，在GitHub有多种和别人的互动方式，可以fork别人的项目后提交pull request贡献自己的代码，可以watch某个人或某个项目，等等。
+GitHub除了提供免费源代码托管空间，还为程序员提供了一个社交平台，在GitHub有多种和别人的互动方式，可以fork别人的项目后提交pull request贡献自己的代码，可以watch某个人或某个项目，等等。
 
-* <http://www.yangzhiping.com/tech/github.html> - 如果高效利用GitHub，整理了一些很有用的文章
+更多git和github可以参考[玩转git与github]({% post_url 2016-01-08-master_git_and_github %})
 
-GitHub帐号可以免费注册，因此，just feel free to register your GitHub account!
+GitHub帐号可以免费注册，因此，去免费注册一个账号吧.
 
-#### GitHub Pages
+### GitHub Pages
 
 GitHub上托管的每个项目都有一个主页，列出项目的源文件，可读性不太好，因此，github就设计了Pages功能，允许用户自定义项目首页，用来替代默认的源码列表。所以，github Pages可以被认为是用户编写的、托管在github上的静态网页。下面是GitHub Pages 官方文档:
 
@@ -41,7 +38,7 @@ GitHub上托管的每个项目都有一个主页，列出项目的源文件，�
 GitHub提供两种类型的主页(<https://help.github.com/articles/user-organization-and-project-pages>):
 
 * 个人或组织主页 - 页面内容位于 master 下
-* 项目主页 - 页面内容位于 branch gh-pages 分支下，我们一般创建的都是项目主页
+* 项目主页 - 页面内容位于 branch gh-pages 分支下
 
 举例说明一下user pages与project pages的区别, 以我的github帐号rainzhaojy为例, 如果以user pages方式创建个人网站, 需要创建一个名为`rainzhaojy.github.io`的repo, 然后在主干上(master)提交我的个人网站的页面, 这样可以通过网址 `http(s)://rainzhaojy.github.io` 来访问我的个人网站.
 
@@ -51,58 +48,44 @@ user pages只有一个, project pages可以有多个, 对于个人博客而言, 
 
 如果用户申请了自己的域名, 还可以使用CNAME文件自定义domain name, 这样访问你的域名就自动访问到github上的页面. 用户也可以自定义404页面.
 
-w3c的spec就利用了github的版本管理和协作功能来多人协作完成spec, 并且利用了github pages功能来发布spec, w3c在github上的用户名就是`w3c`, 使用user pages功能定义了如何使用github来写规范, 参见<http://w3c.github.io>, 每一个具体的规范对应一个单独的repo, 譬如webrtc规范Media Capture, 对应的github repo为`mediacapture-main`: <https://github.com/w3c/mediacapture-main>, 具体规范在分支 gh-pages 下, 用户可以通过地址 <http://w3c.github.io/mediacapture-main> 访问到对应的规范页面.
-
-GitHub Pages支持Jekyll，用户push到GitHub库的静态页面都会经过Jekyll模板引擎的处理。
-
-#### What is Jekyll?
-
-jekyll基于Ruby，是一种静态页面转换引擎，是模板引擎liquid的扩展。jekyll的文档: 
+GitHub Pages支持Jekyll，用户push到GitHub库的静态页面都会经过Jekyll模板引擎的处理。jekyll基于Ruby，是一种静态页面转换引擎，是模板引擎liquid的扩展。jekyll的文档: 
 
 * <http://jekyllbootstrap.com/lessons/jekyll-introduction.html> - jekyll介绍，页面里有一些有用的文档link
 * <http://jekyllbootstrap.com/api/jekyll-liquid-api.html> - liquid介绍，jekyll对liquid的扩展
 
 与asp、jsp、php等动态页面语言不同的是，jekyll对模板的解析仅仅只有一次，它的目标就是将模板一次性的转化成静态网站。解析完后，所有静态页面都位于 '\_site' 目录下，用户访问的每个页面都对应一个html page.
 
-#### 创建一个简单的blog
+### 创建一个简单的blog
 
 到目前为止，假设你已经完成了下面两步:
 
 * 在本机安装了Git
 * 注册了GitHub帐户
 
-接下来通过简单几步创建一个最简单的blog。
+接下来通过简单几步创建一个最简单的blog, 本文以project pages为例.
 
-##### 第一步，创建项目
+#### 第一步，创建项目
 
 有两种方式创建一个项目:
 
 1. 在<http://github.com>页面上创建一个repository，然后clone到本地
 2. 在本地创建一个repository，然后push到GitHub上
 
-如果使用方式1，则执行如下命令将远程repo同步到本地:
+如果使用方式1，则先在github页面上创建一个repo, 然后执行如下命令将远程repo同步到本地:
 
 <pre class="prettyprint">
-    $ git clone git://github.com/schacon/grit.git
+    $ git clone https://github.com/username/jekyll_demo.git
 </pre>
 
-本文使用方式2，在你的电脑上，建立一个目录，作为项目的主目录。我们假定，它的名称为jekyll_demo, 打开 terminal, 进入目录 jekyll_demo 下，运行下面的命令对该目录进行git初始化:
-
-<pre class="prettyprint">
-    $ git init
-</pre>
-    
-该命令实际上是在该目录下初始化一个本地的仓库，会在目录下新建一个.git的隐藏文件夹，可以看成是一个仓库数据库。
-    
-然后，创建一个没有父节点的分支gh-pages。因为github规定，只有该分支中的页面，才会生成网页文件。
+然后，创建一个没有父节点的分支gh-pages。因为github规定，对于project pages, 只有该分支中的页面，才会生成网页文件。(请注意, user pages是在master上)
 
 <pre class="prettyprint">
     $ git checkout --orphan gh-pages
 </pre>
 
-以下所有动作，都在该分支下完成.
+接下来所有动作，都在分支gh-pages下完成.
 
-##### 第二步，创建如下文件和文件夹
+#### 第二步，创建如下文件和文件夹
 
 在jekyll_demo目录下创建如下文件和文件夹:
 
@@ -115,7 +98,7 @@ jekyll基于Ruby，是一种静态页面转换引擎，是模板引擎liquid的�
 
 '_config.yml'是jekyll的设置文件，具体解释参考 <https://github.com/mojombo/jekyll/wiki/Configuration>
 
-##### 第三步，创建模板文件
+#### 第三步，创建模板文件
 
 在_layouts目录下创建一个default.html，在其中输入如下内容（注意：文件本身要以UTF-8 without BOM的格式保存）:
 
@@ -142,7 +125,7 @@ jekyll基于Ruby，是一种静态页面转换引擎，是模板引擎liquid的�
         |- _config.yml
 </pre>
 
-##### 第四步，创建第一个blog
+#### 第四步，创建第一个blog
 
 进入 '_posts' 目录，创建第一篇文章。文章就是普通的文本文件，文件名假定为2013-03-09-hello-world.md(注意，文件名必须为"年-月-日-文章标题.后缀名"的格式)。Jekyll支持 md, textile, html等格式，Markdown语法参考 <http://daringfireball.net/projects/markdown/syntax>，文件内容如下:
 
@@ -168,7 +151,7 @@ jekyll基于Ruby，是一种静态页面转换引擎，是模板引擎liquid的�
         |- _config.yml
 </pre>
 
-##### 第五步，创建首页
+#### 第五步，创建首页
 
 回到根目录jekyll_demo，创建一个index.html文件，填入以下内容:
 
@@ -199,7 +182,7 @@ jekyll基于Ruby，是一种静态页面转换引擎，是模板引擎liquid的�
         |- index.html
 </pre>
 
-##### 第六步，发布内容到GitHub
+#### 第六步，发布内容到GitHub
 
 现在，这个简单的Blog就可以发布到GitHub了。先把所有内容加入本地git库。
 
@@ -216,8 +199,3 @@ jekyll基于Ruby，是一种静态页面转换引擎，是模板引擎liquid的�
 </pre>
 
 上传成功之后，等10分钟左右，访问http://username.github.com/jekyll_demo/就可以看到Blog已经生成了（将username换成你的用户名）
-
-更多资料:
-
-* <http://www.yangzhiping.com/tech/github.html> - 如果高效利用GitHub，整理了一些很有用的文章
-* <http://help.github.com/pages>

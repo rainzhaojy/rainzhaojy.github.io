@@ -51,31 +51,32 @@ user pages可以通过域名`http://username.github.io`访问, project page可�
 如果你对jekyll已经比较了解，做一个简单的模板还是比较容易的，不了解jekyll的可以仔细看一下文档: <http://jekyllbootstrap.com/lessons/jekyll-introduction.html>,了解jekyll以后定义模板的主要工作其实就是CSS和UI设计了, 下面是我的目录结构:
 
 <pre class="prettyprint">
-    rainzhaojy.github.io
-        |- _includes
-              |- head.html      /* 页面head部分, 引入了各种js/css文件 */
-              |- header.html
-              |- footer.html
-        |- _layouts
-              |- default.html
-              |- post.html
-        |- _posts
-        |- static
-              |- ink-3.0.5            /* Ink CSS样式 */
-              |- google-code-prettify /* 实现代码高亮 */
-              |- jquery.toc           /* 实现toc功能 */
-              |- jquery-1.11.1.min.js /* jquery */
-              |- rain.css             /* 自定义CSS */
-              |- rain.js              /* 切换不同category */
-        |- img            /* 博客里用到的图片都放在这个目录 */
-        |- _config.yml
-        |- CNAME          /* 自定义域名 */
-        |- README.md
-        |- index.md
-        |- about.md
+rainzhaojy.github.io
+    +- _includes
+    |      |- head.html      /* 页面head部分, 引入了各种js/css文件 */
+    |      |- header.html
+    |      |- footer.html
+    +- _layouts
+    |      |- default.html
+    |      |- post.html
+    +- _posts
+    +- static
+    |      +- ink-3.0.5            /* Ink CSS样式 */
+    |      +- google-code-prettify /* 实现代码高亮 */
+    |      +- jquery.toc           /* jquery插件, 实现toc功能 */
+    |      |- jquery-1.11.1.min.js /* jquery库 */
+    |      |- rain.css             /* 自定义CSS */
+    |      |- rain.js              /* 切换不同category */
+    +- img            /* 博客里用到的图片都放在这个目录 */
+    |- _config.yml    /* jekyll配置文件 */
+    |- CNAME          /* 自定义域名 */
+    |- README.md
+    |- index.md
+    |- about.md
+    |- .gitignore     /* 忽略_site目录 */
 </pre>
 
-jekyll编译时会将.md文件转换成.html文件, 并放在\_site目录, 同时会将非\_开头的目录直接拷贝到\_site目录下
+jekyll编译时会将.md文件转换成.html文件, 并放在\_site目录, 同时会将非下划线\_开头的目录直接拷贝到\_site目录下
 
 #### 代码高亮
 
@@ -95,4 +96,13 @@ jekyll编译时会将.md文件转换成.html文件, 并放在\_site目录, 同�
 
 使用jQuery插件<http://ndabas.github.io/toc/>实现TOC功能, 这个插件支持nested header, 本站配置为h1 - h4会被构建成toc, 另外, 使用page.toc变量决定是否显示toc, 默认page.toc为false, 因此默认没有toc, 如果想在博客上显示toc, 需要在博客文件开头的YAML部分定义`toc: true`.
 
-toc只会显示post.html页面里, 如果page.toc == true, 则在页面内容的右上角显示.
+如果想在博客里显示toc, 需要满足两个条件: `layout: post` & `toc: true`, 示例如下:
+
+<pre class="prettyprint">
+---
+layout: post
+title: your blog title
+category: your blog category
+toc: true
+---
+</pre>

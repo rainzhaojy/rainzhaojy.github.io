@@ -53,3 +53,7 @@ markdown并没有表格语法，可以直接写html，可以利用ink的CSS，�
 ##### 12: 怎么输出table of contents?
 
 使用javascript: <http://www.kryogenix.org/code/browser/generated-toc>, <http://projects.jga.me/toc>, <http://ndabas.github.io/toc/> (本站使用这个)
+
+##### 13. last modified date
+
+使用插件<https://github.com/gjtorikian/jekyll-last-modified-at>

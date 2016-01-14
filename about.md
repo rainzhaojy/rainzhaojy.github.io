@@ -10,12 +10,12 @@ whereami: about
 
 ### About me
 
-做技术, 也做管理, 技术上努力追求极致, 生活中希望淡定从容, 相信简单简约, 2000年毕业后一直在软件研发一线, 对各种技术都有兴趣
+做技术, 也做管理, 技术上努力追求极致, 生活中希望淡定从容. 技术上喜欢简单而强大的技术和架构, 相信细节决定成败, 没有一步到位的架构, 够用就好, 不断迭代, 语言没有优劣, 适用就行. 管理上相信diversity, respect people, transparent, delegation, 相信团队的力量, 也相信一个天才胜过无数庸才.
 
 联系我:
 
-* <i class="icon-envelope"></i> <a href="mailto:rainzhaojy@gmail.com">rainzhaojy@gmail.com</a>
-* <i class="icon-linkedin"></i> <a href="http://cn.linkedin.com/in/rainz" target="_blank">http://cn.linkedin.com/in/rainz</a></li>
+* <i class="fa fa-envelope"></i> [rainzhaojy@gmail.com](mailto:rainzhaojy@gmail.com)
+* <i class="fa fa-linkedin"></i> <http://cn.linkedin.com/in/rainz>
 
 
 ### 个人建站经历
@@ -35,4 +35,4 @@ whereami: about
 
 ### Todo list
 
-* 打印时代码显示不对, google-code-prettify没有使用skin rain?
+* 打印时代码样式不对, google-code-prettify没有使用skin rain?

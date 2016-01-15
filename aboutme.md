@@ -7,7 +7,7 @@ title: Rain Zhao
 
 * Male | Oct, 1978
 * Now in San Jose, CA, US | Preferred location: Suzhou, Shanghai
-* <i class="fa fa-envelope"></i> [rainzhaojy@gmail.com](mailto:rainzhaojy@gmail.com) <i class="fa fa-home"></i> <http://rainzhao.com> <i class="fa fa-linkedin"></i> <http://cn.linkedin.com/in/rainz>
+* <i class="fa fa-envelope"></i> [rainzhaojy@gmail.com](mailto:rainzhaojy@gmail.com) <i class="fa fa-home"></i> <http://rainzhao.com> <i class="fa fa-linkedin"></i> <http://cn.linkedin.com/in/rainz> <i class="fa fa-phone"></i> +1 408-913-3720
 
 #### Strength and Expertise
 

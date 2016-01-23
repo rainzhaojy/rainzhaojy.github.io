@@ -102,9 +102,11 @@ alert(s);
 
 Pygments是基于Python的代码高亮工具, 参考<http://zyzhang.github.io/blog/2012/08/31/highlight-with-Jekyll-and-Pygments/>, 用法如下:
 
-{% highlight language %}
+<pre>
+&#123;% highlight language %}
 code here
-{% endhighlight %}
+&#123;% endhighlight %}
+</pre>
 
 #### TOC功能
 

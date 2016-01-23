@@ -12,28 +12,19 @@ toc: true
 
 你可以不在本机安装jekyll，但为了在上传文件到GitHub前能在本地看一下效果，强烈建议你在本机安装jekyll。个人体会，因为jekyll只支持UTF8编码，我从原来的wiki里copy文档时常有编码不对的问题导致jekyll编译失败，另外我自己写了一个template，需要时时看到效果，因此，本地的jekyll环境对我是非常重要的。
 
-下面是在我的Mac OS X 10.8上安装本机jekyll环境的步骤，采用的RVM（Ruby Version Manager）方式安装。
+详细的安装步骤可以参考 <http://jekyllrb.com/docs/installation/> 或者网上找一些教程.下面是在我的Macbook上安装本机jekyll环境的步骤:
 
-1. install Ruby - Jekyll是基于ruby的，因此需要先安装ruby。Mac自带了一个Ruby，但版本较老，因此需要安装一个较新版本的ruby.
-    * Step 1 - 安装Xcode, 可以在 mac app store里下载安装
-    * Step 2 - 安装Command Line Tools, 在菜单栏中选择Xcode -> Preference -> Download，然后点击Command Line Tools对应的install即可
-    * Step 3 - 确认Git已经安装: `git --version`
-    * Step 4 - 安装RVM
-    * Step 5 - 安装ruby
-2. install jekyll
+1. install Xcode - jekyll可能会依赖xcode某些组件, 因此建议先安装Xcode和Xcode command line tools
+2. install Ruby (可选) - Jekyll是基于ruby的, 所以需要有ruby环境. Mac自带了一个Ruby, 因此这一步可以省略, 但如果想安装最新版本的ruby, 步骤如下:
+    1. 安装RVM - 用Ruby Version Manager(RVM)管理多个版本的Ruby
+    2. 安装最新版本的ruby
+    3. 安装RubyGems (可选) - Ruby的包管理器, Ruby1.9.1 以后的版本自带RubyGems
+3. install jekyll - 使用RubyGems安装Jekyll: `gem install jekyll`
 
-详细安装步骤请参考网上的教程.
+参考:
 
-更多资料:
-
-* <http://www.hoowolf.net/2012/03/29/installing-ruby-on-rails-on-mac-os-x-lion>
-* <http://equation85.github.com/blog/install-jekyll-on-mac>
-* [jekyll wiki on github](https://github.com/mojombo/jekyll/wiki/Install)
-* <http://brandonbohling.com/2011/08/27/Installing-Jekyll-on-Mac>
-* <http://jekyllbootstrap.com/lessons/jekyll-introduction.html> - jekyll官方文档，还包含了一些有用的link
-* <http://jekyllbootstrap.com/api/jekyll-liquid-api.html> - jekyll对liquid的扩展
-* [jekyll wiki](https://github.com/mojombo/jekyll/wiki/Usage) - jekyll wiki
-* [jekyll configuration](https://github.com/mojombo/jekyll/wiki/Configuration) - \_config.yml配置项
+* <http://jekyllrb.com/docs/home/> - jekyll官网文档
+* <http://jekyllbootstrap.com/lessons/jekyll-introduction.html> - jekyll bootstrap
 
 #### 绑定域名
 
@@ -80,17 +71,40 @@ jekyll编译时会将.md文件转换成.html文件, 并放在\_site目录, 同�
 
 #### 代码高亮
 
-看了一些资料提到GitHub Pages代码高亮可以使用pygments或者gist，看了一些文档后还是没有完全理解，而且有人提到pygments有时不work，因此决定自己找一个方案，一者省得继续花时间了解pygments，二者对GitHub Pages减少依赖。
+##### 方法1: 使用JavaScript实现代码高亮
 
-一般页面的语法高亮都是JavaScript实现的，搜索"javascript 语法高亮"可以找到很多实现，我使用的是[google code prettify](https://code.google.com/p/google-code-prettify)，步骤如下:
+一般页面的语法高亮都是JavaScript实现的，搜索"javascript 语法高亮"可以找到很多实现，我使用的是[google code prettify](https://code.google.com/p/google-code-prettify)，下载后将google code prettify目录放在 `/static` 目录下, 本站定义了一个自己的skin:
 
-1. 下载 google code prettify, 我是放在 /static 目录下
-3. 在模板文件的header部分加上 `<script src="/static/google-code-prettify/run_prettify.js></script>`
-4. 将需要高亮的代码段放在pre or code tag里: `<pre class="prettyprint">...</pre> or <code class="prettyprint">...</code>`
+在目录`/static/google-code-prettify/loader/skins`里, 复制一份 `sunburst.css` 并命名为 `rain.css`, 在rain.css里修改或定义自己的CSS样式.
 
-本站定义了一个自己的skin:
+然后在模板文件的header部分加上 `<script src="/static/google-code-prettify/run_prettify.js?skin=rain></script>`
 
-在目录`/static/google-code-prettify/loader/skins`里, 复制一份 `sunburst.css` 并命名为 `rain.css`, 修改上文步骤3里的语句为 &lt;script src="/static/google-code-prettify/run_prettify.js**?skin=rain**>&lt;/script>, 然后就可以在rain.css里修改或定义自己的CSS样式了.
+用法如下:
+
+`<pre class="prettyprint">...</pre>`
+
+##### 方法2: redcarpet
+
+在_config.yml里面配置如下:
+
+markdown: redcarpet
+redcarpet:
+    extensions: ["fenced_code_blocks", "autolink", "tables", "strikethrough"]
+
+然后在你的主题的default.html模版文件里面增加代码高亮的css这样就可以用
+
+```javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
+
+##### 方法3: Pygments
+
+Pygments是基于Python的代码高亮工具, 参考<http://zyzhang.github.io/blog/2012/08/31/highlight-with-Jekyll-and-Pygments/>, 用法如下:
+
+{% highlight language %}
+code here
+{% endhighlight %}
 
 #### TOC功能
 
@@ -106,3 +120,14 @@ category: your blog category
 toc: true
 ---
 </pre>
+
+#### 使用哪一个markdown引擎?
+
+Github Pages支持下面几种markdown engine:
+
+* Maruku: 早期的默认引擎, 已经很久没有更新了
+* Redcarpet: C实现, 
+* Rdiscount: C实现, supports a superset of Markdown.
+* kramdown(default): 目前的默认引擎
+
+Github Pages上个引擎的版本参考 <https://pages.github.com/versions>

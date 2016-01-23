@@ -10,14 +10,21 @@ whereami: about
 
 ### About me
 
-做技术, 也做管理. 技术上相信没有一步到位的架构, 够用就好, 不断迭代, 语言没有优劣, 适用就行. 管理上相信团队合作, 也相信个人的力量.
-
-联系我:
+做技术, 也做管理. 联系我:
 
 * <i class="fa fa-envelope"></i> [rainzhaojy@gmail.com](mailto:rainzhaojy@gmail.com) 
 * <i class="fa fa-envelope"></i> [rainzhao@outlook.com](mailto:rainzhao@outlook.com)
 * <i class="fa fa-linkedin"></i> <http://cn.linkedin.com/in/rainz>
 
+### 对待技术的看法
+
+* 没有一步到位的架构, 够用就好, 要不断重构与迭代
+* 语言没有优劣, 适用就行
+* 晦涩难懂的代码不代表水平高, 用简单的代码解决复杂的问题才是水平
+* 要善于整理工作日记, wiki+plantuml是很好的方式, markdown也不错
+* 多数问题都不是你独有的, 因此要善用google/stackoverflow等
+* 代码加适当的注释是最好的文档
+* 静下心来自学比找人讨论和培训效率更高
 
 ### 个人建站经历
 

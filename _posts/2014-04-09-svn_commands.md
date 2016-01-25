@@ -14,7 +14,7 @@ category: misc
 
 使用svn时，一个常见的工作流程如下:
 
-<pre class="prettyprint">
+```sh
 # 0. Check out a working copy from repo
 $ svn co     # svn checkout
 
@@ -41,23 +41,23 @@ $ svn resolve
 
 # 6. Commit your changes
 $ svn ci     # svn commit
-</pre>
+```
 
 ### 查看历史版本信息
 
 svn repo就像一个时间机器，记录了每一次提交和每一个时间点的代码，使用下面几个命令可以查看 svn repo 的各种历史信息:
 
-<pre class="prettyprint">
+```sh
 $ svn log    # 显示各个版本的author/date/commit message等信息
 $ svn diff   # 比较文件内容的diff
 $ svn cat -r 2 rules.txt    # 显示版本2的内容
 $ svn list http://svn.collab.net/repos/svn     # 显示repo列表
 $ svn info README    #显示文件README的svn url, 版本等详细信息
-</pre>
+```
 
 log命令显示整个repo，某个文件或某个目录的历史版本信息:
 
-<pre class="prettyprint">
+```sh
 $ svn log
 
 $ svn log -r 5:19      # 顺序显示版本5至版本19的各个版本信息
@@ -66,21 +66,21 @@ $ svn log -r 8         # 显示版本8的版本信息
 
 $ svn log foo.c
 $ svn log http://foo.com/svn/trunk/code/foo.c
-</pre>
+```
 
 diff命令有3种比较用途:
 
-<pre class="prettyprint">
+```sh
 $ svn diff                   # diff local changes
 $ svn diff -r 3 rules.txt    # diff working copy with repo
 $ svn diff -r 2:3 rules.txt  # diff repo revisions
-</pre>
+```
 
 ### 应用patch
 
 利用patch可以实现同事之间相互code review:
 
-<pre class="prettyprint">
+```sh
 # 1. 同事A生成patch
 $ svn diff > aaa.diff    # 生成diff文件
 $ svn diff > aaa.patch   # 生成patch文件
@@ -90,15 +90,15 @@ $ patch –p0 < aaa.patch
 
 # 3. 同事B review code后删除patch
 $ patch –p0 -R < aaa.patch
-</pre> 
+```
 
 ### 属性svn:externals
 
 利用属性svn:externals可以在某个版本库里链接其他版本库:
 
-<pre class="prettyprint">
+```sh
 $ svn propset svn:externals “doc http://doc-svn/trunk”
-</pre>
+```
 
 checkout后将会多一个doc目录，目录内容来自另一个repo
 
@@ -106,31 +106,31 @@ checkout后将会多一个doc目录，目录内容来自另一个repo
 
 在文件开头的文件注释里通常会加上作者,时间等注释:
 
-<pre class="prettyprint">
+```sh
 **
  * foo.cpp
  * Last modified on 2014-03-01
  * Last modified by Rain Zhao
  */
-</pre>
+```
 
 这里的时间和作者需要每个人在修改这个文件时手工修改，比较低效也很容易忘记. svn提供了关键字替换功能，可以自动添加一些revision, author, date等信息，实现如下:
 
 先将上面的注释改为:
 
-<pre class="prettyprint">
+```sh
 **
  * foo.cpp
  * Last modified on $Date$
  * Last modified by $Author$
  */
-</pre>
+```
 
 然后设置svn:keywords属性，如果没有设置svn:keywords属性则svn不会自动替换:
 
-<pre class="prettyprint">
+```sh
 $ svn propset svn:keywords "Date Author" foo.cpp
-</pre>
+```
 
 commit后再checkout，会发现$Date$和$Author$已经被自动替换了。
 
@@ -153,7 +153,7 @@ svn支持固定长度关键字，格式为<mark>“$Date::&nbsp;&nbsp;&nbsp;&nbs
 
 ### 其他命令
 
-<pre class="prettyprint">
+```sh
 $ svn import      # 将某个目录导入到svn
 $ svn export      # 将svn导出到本地，不带有svn信息
 
@@ -163,4 +163,4 @@ $ svn propedit
 $ svn propget
 $ svn proplist
 $ svn propset
-</pre>
+```

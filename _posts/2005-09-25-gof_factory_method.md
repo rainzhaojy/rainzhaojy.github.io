@@ -29,16 +29,17 @@ Factory 模式解决了创建目标类的问题，但用户在使用 Factory 模
 
 下面举例说明4种Factory Method应用,假设要建一个房子，房子有木头和石头两种，程序中我们定义一个房子接口 IHouse，两种实现类分别是 WoodHouse 和 StoneHouse，类图如下： 
 
-<pre class="prettyprint">
+```
             IHouse
             /   \
     WoodHouse   StoneHouse
-</pre>
+```
 
 ###### 1. 静态工厂方法 － 在自身类里定义
 
 在实现类里定义一个静态方法 getInstance 返回自身实例。 
-<pre class="prettyprint">
+
+```java
     public class WoodHouse implements IHouse{
         public static IHouse getInstance(){
             return new WoodHouse();
@@ -52,7 +53,7 @@ Factory 模式解决了创建目标类的问题，但用户在使用 Factory 模
         }
         ......
     }
-</pre>
+```
 
 这种用法有一些不足： 
 
@@ -61,14 +62,14 @@ Factory 模式解决了创建目标类的问题，但用户在使用 Factory 模
 
 但由于这种实现比较简单，所以常在如下的环境下使用：只有一种 House 时（如下）；在某个类实现 Singleton 时就可以在这个类里如此使用工厂方法模式。 
 
-<pre class="prettyprint">
+```java
     public class House{
         public static House getInstance(){
             return new House();
         }
         ......
     }
-</pre>
+```
 
 ###### 2. 静态工厂方法 － 在一个单独类里定义
 
@@ -76,7 +77,7 @@ Factory 模式解决了创建目标类的问题，但用户在使用 Factory 模
 
 如下示例定义了多个方法，这有一个缺点，如果多了一种实现类（SteelHouse），必须多加一个工厂方法(getSteelHouse)： 
 
-<pre class="prettyprint">
+```java
     public class HouseCreator{
         public static IHouse getWoodHouse(){
             return new WoodHouse();
@@ -85,31 +86,31 @@ Factory 模式解决了创建目标类的问题，但用户在使用 Factory 模
             return new StoneHouse();
         }
     }
-</pre>
+```
 
 如下使用参数化工厂方法，如果多了一种实现类（SteelHouse），需要修改工厂方法。 
 
-<pre class="prettyprint">
+```java
     public class HouseCreator{
         public static IHouse getHouse(String param){
             // instantiate WoodHouse or StoneHouse by the param
         }
     }
-</pre>
+```
 
 ###### 3. 非静态工厂方法（not-static Factory Method）
 
 这种用法与结构图所示类似，对应于类的继承关系，定义一组相应的构造类，这里定义构造类接口为 IHouseCreator，定义实现类 WoodHouseCreator 和 StoneHouseCreator，类图如下： 
 
-<pre class="prettyprint">
+```
                IHouseCreator
                 /       \
     WoodHouseCreator   StoneHouseCreator
-</pre>
+```
 
 类定义如下：
  
-<pre class="prettyprint">
+```java
     public interface IHouseCreator{
         public IHouse create();
     }
@@ -125,16 +126,16 @@ Factory 模式解决了创建目标类的问题，但用户在使用 Factory 模
             return new StoneHouse();
         }
     }
-</pre>
+```
 
 ###### 4. 参数化工厂方法
 
-<pre class="prettyprint">
+```java
     public class HouseCreator{
         public IHouse create(String param){
             ...... // instantiate ConcreteHouse by param
         }
     }
-</pre>
+```
 
 在Factory Method里根据不同参数创建不同对象。

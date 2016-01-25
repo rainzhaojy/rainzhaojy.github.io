@@ -15,11 +15,12 @@ category: GoF_Patterns
 对于树，需要遍历树里的元素（叶子或子树），所以可以使用 **Iterator模式**（Java中的Iterator, C++/STL中的iterator）。 
 
 在Java中应用 Composite 模式，通常先定义一个接口，叶子和树都实现这个接口，类图如下： 
-<pre class="prettyprint">
+
+```
               IProduct
               /     \
     ProductLeaf     ProductTree
-</pre>
+```
 
 对于客户程序而言，使用的都是 IProduct，而不用关心这是一个 Leaf 还是一个 Tree。当然对于 Tree 中的操作其实是遍历自己的元素（叶子或子树，如果是子树，继续遍历，这里是一种 **递归**），然后执行他们。 
 

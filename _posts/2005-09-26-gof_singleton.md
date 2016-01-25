@@ -13,7 +13,8 @@ Singleton能够被状态化，例如论坛中帖子的计数器;Singleton也能�
 ##### 懒汉式单例类
 
 Singleton常结合 Factory Method 来实现，JAVA中常见的实现如下(懒汉式)：
-<pre class="prettyprint">
+
+```java
 public class Singleton{
     private static Singleton instance = null;
     private Singleton(){}
@@ -25,21 +26,21 @@ public class Singleton{
     }
     ......
 }
-</pre>
+```
 
 以上的用法非常简单,是比较常见的Singleton模式的实现方法，但没有考虑多线程和序列化的情况。在上例中如下的代码块不是线程安全的（thread-safe）: 
 
-<pre class="prettyprint">
+```java
 1   if (instance == null){
 2       instance = new Singleton();
 3   }
-</pre>
+```
 
 如果 thread1 执行到语句2之前，thread2 也进入判断语句1，那么 thread2 也将执行语句2，那么 thread1 和 thread2 获得的 instance 将不一样. 当然如果Singleton没有状态, 也并不影响程序的正确执行. 在 <http://www.javaworld.com/javaworld/jw-04-2003/jw-0425-designpatterns.html> 上有比较深入的单例模式的讨论, 改进的方法一是同步化上面的getInstance方法, 还有就是使用饿汉式单例类.
 
 ##### 饿汉式单例类
 
-<pre class="prettyprint">
+```java
 public class Singleton{
     private static Singleton instance = new Singleton();
     private Singleton(){}
@@ -48,6 +49,6 @@ public class Singleton{
     }
     ......
 }
-</pre>
+```
 
 例子里使用的是JAVA实现,懒汉式与饿汉式都是常见的单例实现. 在C++里, 由于静态初始化没有固定顺序, 因此通常使用懒汉式实现单例应用.

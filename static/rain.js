@@ -1,9 +1,19 @@
-/**
- * 页面ready方法
- */
+
 $(document).ready(function() {
 
-    categoryDisplay();
+  //根据category显示相应文章列表
+  categoryDisplay();
+
+  //给普通文本增加highlightjs里的样式
+  $(".text").addClass("hljs");
+  
+  //初始化highlightjs
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+  //给table加上INS CSS样式
+  $("table").addClass("ink-table alternating hover bordered");
 });
 
 /**

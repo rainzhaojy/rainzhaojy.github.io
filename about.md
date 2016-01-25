@@ -10,9 +10,8 @@ whereami: about
 
 ### About me
 
-做技术, 也做管理. 联系我:
+做技术, 也做管理, 爱好阅读和足球. 联系我:
 
-* <i class="fa fa-envelope"></i> [rainzhaojy@gmail.com](mailto:rainzhaojy@gmail.com) 
 * <i class="fa fa-envelope"></i> [rainzhao@outlook.com](mailto:rainzhao@outlook.com)
 * <i class="fa fa-linkedin"></i> <http://cn.linkedin.com/in/rainz>
 

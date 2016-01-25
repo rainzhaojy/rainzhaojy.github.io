@@ -7,12 +7,11 @@ toc: true
 
 经过上一篇的介绍，我们已经在GitHub上搭建了一个最简单的blog，接下来我们介绍一些进阶设定。
 
-
-#### 搭建本机jekyll环境
+### 搭建本机jekyll环境
 
 你可以不在本机安装jekyll，但为了在上传文件到GitHub前能在本地看一下效果，强烈建议你在本机安装jekyll。个人体会，因为jekyll只支持UTF8编码，我从原来的wiki里copy文档时常有编码不对的问题导致jekyll编译失败，另外我自己写了一个template，需要时时看到效果，因此，本地的jekyll环境对我是非常重要的。
 
-详细的安装步骤可以参考 <http://jekyllrb.com/docs/installation/> 或者网上找一些教程.下面是在我的Macbook上安装本机jekyll环境的步骤:
+详细的安装步骤可以参考 <http://jekyllrb.com/docs/installation/> 或者网上找一些教程.下面是在Mac上安装本机jekyll环境的大概步骤:
 
 1. install Xcode - jekyll可能会依赖xcode某些组件, 因此建议先安装Xcode和Xcode command line tools
 2. install Ruby (可选) - Jekyll是基于ruby的, 所以需要有ruby环境. Mac自带了一个Ruby, 因此这一步可以省略, 但如果想安装最新版本的ruby, 步骤如下:
@@ -26,13 +25,15 @@ toc: true
 * <http://jekyllrb.com/docs/home/> - jekyll官网文档
 * <http://jekyllbootstrap.com/lessons/jekyll-introduction.html> - jekyll bootstrap
 
-#### 绑定域名
+### 绑定域名
 
-user pages可以通过域名`http://username.github.io`访问, project page可以通过域名`http(s)://username.github.io/projectname`访问, 因此绑定域名不是必须的, 但如果你有自己的域名, 那么可以绑定域名, 请参考 <https://help.github.com/articles/setting-up-a-custom-domain-with-pages>
+你可以不绑定域名, user pages可以通过域名`http(s)://username.github.io`访问, project page可以通过域名`http(s)://username.github.io/projectname`访问.
+
+但如果你有自己的域名, 那么可以绑定域名, 请参考 <https://help.github.com/articles/setting-up-a-custom-domain-with-pages>
 
 譬如我的博客, github提供的地址为<http://rainzhaojy.github.io>, 但我绑定了自己的博客域名: <http://rainzhao.com>
 
-#### 创建模板
+### 创建模板
 
 一个简单的办法是找一个现成的模板，13年我搭建博客时没有发现满意的模板，因此当时自己做了一个, 15年做了一些小修改, 我的模版素材主要来源于:
 
@@ -41,7 +42,7 @@ user pages可以通过域名`http://username.github.io`访问, project page可�
 
 如果你对jekyll已经比较了解，做一个简单的模板还是比较容易的，不了解jekyll的可以仔细看一下文档: <http://jekyllbootstrap.com/lessons/jekyll-introduction.html>,了解jekyll以后定义模板的主要工作其实就是CSS和UI设计了, 下面是我的目录结构:
 
-<pre class="prettyprint">
+```
 rainzhaojy.github.io
     +- _includes
     |      |- head.html      /* 页面head部分, 引入了各种js/css文件 */
@@ -53,7 +54,7 @@ rainzhaojy.github.io
     +- _posts
     +- static
     |      +- ink-3.0.5            /* Ink CSS样式 */
-    |      +- google-code-prettify /* 实现代码高亮 */
+    |      +- highlight            /* 实现代码高亮 */
     |      +- jquery.toc           /* jquery插件, 实现toc功能 */
     |      |- jquery-1.11.1.min.js /* jquery库 */
     |      |- rain.css             /* 自定义CSS */
@@ -65,71 +66,233 @@ rainzhaojy.github.io
     |- index.md
     |- about.md
     |- .gitignore     /* 忽略_site目录 */
-</pre>
+```
 
 jekyll编译时会将.md文件转换成.html文件, 并放在\_site目录, 同时会将非下划线\_开头的目录直接拷贝到\_site目录下
 
-#### 代码高亮
+### 使用哪一个markdown engine?
 
-##### 方法1: 使用JavaScript实现代码高亮
+选择之前请先注意下面两个概念是不同的:
 
-一般页面的语法高亮都是JavaScript实现的，搜索"javascript 语法高亮"可以找到很多实现，我使用的是[google code prettify](https://code.google.com/p/google-code-prettify)，下载后将google code prettify目录放在 `/static` 目录下, 本站定义了一个自己的skin:
+* Github Flavored Markdown - [Github Flavored Markdown(GFM)](https://help.github.com/articles/github-flavored-markdown/)是Github自身的markdown engine, 用于转换github上所有的markdown文本, 包括issues, comments, and pull requests等
+* 你的个人博客的markdown engine - 利用github pages搭建个人博客时, 我们可以在站点的_config.yml里指定自己的markdown engine, 可以和GFM不同
 
-在目录`/static/google-code-prettify/loader/skins`里, 复制一份 `sunburst.css` 并命名为 `rain.css`, 在rain.css里修改或定义自己的CSS样式.
+GFM支持了一些很有用的markdown扩展, 譬如 URL auto linking, fenced code blocks, syntax highlighting, table等等.
 
-然后在模板文件的header部分加上 `<script src="/static/google-code-prettify/run_prettify.js?skin=rain></script>`
+利用Github Pages搭建个人博客时, 我们可以指定自己的markdown engine, 当然, 这些markdown engine必须是github支持的, 目前github pages支持下面几种markdown engine:
 
-用法如下:
+* Maruku: 早期的GFM引擎, 已经很久没有更新了
+* Redcarpet: C实现
+* Rdiscount: C实现, supports a superset of Markdown.
+* kramdown(default): 目前的GFM使用kramdown
 
-`<pre class="prettyprint">...</pre>`
+Github Pages上各个引擎的版本参考 https://pages.github.com/versions
 
-##### 方法2: redcarpet
+本站最早使用rdiscount, 因为rdiscount支持autolink, 目前使用redcarpet, 因为redcarpet支持更多功能, 包括:
 
-在_config.yml里面配置如下:
+* auto link - URL自动生成link
+* fenced code blocks
+* table
+* strikethrough - 在文本前后各加上两个`~`, ~~your text~~
+* no_intra_emphasis - 单词里的下划线不会被解释成斜体, 如果没有这个功能, `foo_bar`会变成 foo<em>bar</em>
 
+下面的章节会详细介绍这几个功能: fenced code blocks, table, 
+
+### 代码高亮
+
+有下面几种方法实现代码高亮.
+
+1. 使用JavaScript实现代码高亮 - 多数页面的语法高亮都是JavaScript实现的，搜索"javascript 语法高亮"可以找到很多实现，本站开始使用的是[google code prettify](https://code.google.com/p/google-code-prettify)，目前使用 https://highlightjs.org
+2. Pygments - 这是基于Python的代码高亮工具, 有很多github pages上的博客使用pygments实现
+
+本站使用的方案为 `redcarpet + highlightjs`
+
+#### 使用redcarpet+highlightjs实现代码高亮
+
+在_config.yml里面配置使用redcarpet作为markdown引擎, 并配置"fenced_code_blocks", 如下:
+
+```
 markdown: redcarpet
 redcarpet:
     extensions: ["fenced_code_blocks", "autolink", "tables", "strikethrough"]
+```
 
-然后在你的主题的default.html模版文件里面增加代码高亮的css这样就可以用
+然后在head.html里引入hightlighjs相关javascript/css文件实现代码高亮. 这样下面的markdown文本
 
-```javascript
+<pre class="text">
+```js
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
+</pre>
+
+首先被redcarpet fenced code blocks插件翻译成下面的html文本:
+
+<pre class="text">
+&lt;div class="highlight">&lt;pre>&lt;code class="js language-js" data-lang="js">
+var s = "JavaScript syntax highlighting";
+alert(s);
+&lt;/code>&lt;/pre>&lt;/div>
+</pre>
+
+然后highlightjs会进行代码高亮处理, 就是使用highlight.pack.js解析你的代码然后加上相应的css样式, 最终效果如下:
+
+```js
 var s = "JavaScript syntax highlighting";
 alert(s);
 ```
 
-##### 方法3: Pygments
+redcarpet fenced code blocks支持的语言列表可以参考[languages.yml](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml), highlightjs支持的语言列表可以参考https://highlightjs.org, 本站在下载highlighjs时配置了下面一些语言:
 
-Pygments是基于Python的代码高亮工具, 参考<http://zyzhang.github.io/blog/2012/08/31/highlight-with-Jekyll-and-Pygments/>, 用法如下:
+| 支持语言 | 别名 |
+| -------- | -------- |
+| javascript | js |
+| cpp | c, cc, h, c++, h++, hpp |
+| python | py, gyp |
+| makefile | mk, mak |
+| markdown | md, mkdown, mkd |
+| cs | csharp |
+| diff | patch |
+| perl | pl |
+| bash | sh, zsh |
+| objectivec | mm, objc, obj-c |
 
-<pre>
-&#123;% highlight language %}
-code here
-&#123;% endhighlight %}
+其他还有 xml, ruby, css, html, json, nginx, java, php, ini, http, sql, go, erlang 等等.
+
+
+#### 给普通文本增加highlightjs样式
+
+如果在markdown文本想输出普通文本块(非代码, 但希望保留格式, 也就是使用pre输出), md文本如下
+
+<pre class="text">
+```
+your text
+```
 </pre>
 
-#### TOC功能
+redcarpet fenced code blocks插件将会翻译成下面的html文本:
 
-使用jQuery插件<http://ndabas.github.io/toc/>实现TOC功能, 这个插件支持nested header, 本站配置为h1 - h4会被构建成toc, 另外, 使用page.toc变量决定是否显示toc, 默认page.toc为false, 因此默认没有toc, 如果想在博客上显示toc, 需要在博客文件开头的YAML部分定义`toc: true`.
+<pre class="text">
+&lt;div class="highlight">&lt;pre>&lt;code class="text language-text" data-lang="text">
+your text
+&lt;/code>&lt;/pre>&lt;/div>
+</pre>
+
+请注意, redcarpet输出的语言为"text", 但highlightjs并没有一种语言叫text, 因此不会做任何处理, 也没有定义任何样式, 最后出来的效果就是普通pre标签的效果, 没有任何css样式. 
+
+为了让普通文本也有基本的css样式, 我使用jquery代码初始化highlightjs, 并在初始化之前增加了highlightjs的css样式, 也就是给code标签增加css样式hljs:
+
+```js
+$(".text").addClass("hljs");
+```
+
+### 表格
+
+本站之前是在makrdown里直接写html文本实现表格支持, 并使用INK CSS样式定定制表格样式, 目前使用redcarpet.
+
+#### ~~使用Inline HTML + INK CSS实现表格~~(不推荐)
+
+本站使用了Ink，因此所有Ink的CSS样式也可以被使用，完整的Ink CSS样式请参考: <http://ink.sapo.pt/ui-elements/>. 下面是一个表格例子:
+
+```html
+<table class="ink-table bordered hover alternating">
+  <thead>
+    <tr>
+      <th class="align-left">ID</th>
+      <th class="align-left">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="orange">
+      <td>1</td>
+      <td>John</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Will</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Steve</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+效果如下:
+
+<table class="ink-table bordered hover alternating">
+  <thead>
+    <tr>
+      <th class="align-left">ID</th>
+      <th class="align-left">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="orange">
+      <td>1</td>
+      <td>John</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Will</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Steve</td>
+    </tr>
+  </tbody>
+</table>
+
+虽然Inline HTML + Ink CSS可以实现非常多样的页面，但Ink样式是本站特有的，不容易移植，而且markdown文档包含Inline HTML会降低文档可读性，因此不推荐使用 Inline HTML 和 Ink CSS样式, 应该尽量用标准的markdown语法来写文档.
+
+#### 使用redcarpet实现表格(推荐)
+
+Inline HTML+INK CSS的写法比较麻烦, 而且在markdown夹杂html的写法也显得怪异, 因此目前改为 redcarpet tables + ink css, 这样就可以直接用markdown输出表格了.
+
+本站做了2个改动实现表格支持:
+
+1. 在_config.yml文件里配置使用redcarpet并且配置插件tables:
+
+```
+markdown: redcarpet
+redcarpet:
+    extensions: ["fenced_code_blocks", "autolink", "tables", "strikethrough"]
+```
+
+2. 在rain.js里使用jquery给表格加上INK CSS:
+
+```js
+$("table").addClass("ink-table alternating hover bordered");
+```
+
+这样, 就可以使用markdown文本输出表格了, 语法为:
+
+```
+| header 1 | header 2 |
+| -------- | -------- |
+| cell 1   | cell 2   |
+| cell 3   | cell 4   |
+```
+
+效果如下:
+
+| header 1 | header 2 |
+| -------- | -------- |
+| cell 1   | cell 2   |
+| cell 3   | cell 4   |
+
+### TOC功能
+
+本站使用jQuery插件<http://ndabas.github.io/toc/>实现TOC功能, 这个插件支持nested header, 本站配置为h1 - h4会被构建成toc, 另外, 使用page.toc变量决定是否显示toc, 默认page.toc为false, 因此默认没有toc, 如果想在博客上显示toc, 需要在博客文件开头的YAML部分定义`toc: true`.
 
 如果想在博客里显示toc, 需要满足两个条件: `layout: post` & `toc: true`, 示例如下:
 
-<pre class="prettyprint">
+```
 ---
 layout: post
 title: your blog title
 category: your blog category
 toc: true
 ---
-</pre>
-
-#### 使用哪一个markdown引擎?
-
-Github Pages支持下面几种markdown engine:
-
-* Maruku: 早期的默认引擎, 已经很久没有更新了
-* Redcarpet: C实现, 
-* Rdiscount: C实现, supports a superset of Markdown.
-* kramdown(default): 目前的默认引擎
-
-Github Pages上个引擎的版本参考 <https://pages.github.com/versions>
+```

@@ -12,7 +12,7 @@ C++提供了ASCII码字符的数据类型和字符串处理函数，也定义了
 
 宽字符类型的示例定义:
 
-<pre class="prettyprint">
+```c
 typedef unsigned short wchar_t;
 typedef basic_string<char> string;
 typedef basic_string<wchar_t> wstring;
@@ -23,7 +23,7 @@ typedef basic_string<wchar_t> wstring;
     typede wchar_t TCHAR; 
     #define _T(x) L##x
 #endif
-</pre>
+```
 
 使用TCHAR和_T似乎保持了灵活性，但绝大多数的程序都是要支持国际化的，因此，建议直接使用wchar_t/wstring等来处理字符串。
 

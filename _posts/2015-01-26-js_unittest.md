@@ -20,13 +20,13 @@ jsTestDriver包括两部分：客户端和服务端，两部分都包含在同�
 
 jsTestDriver可以在命令行下启动运行，也可以和Eclipse和IntelliJ IDEA等IDE集成。常用的命令行命令有:
 
-<pre class="prettyprint">
+```java
 //在端口42442启动jsTestDriver，并启动几个浏览器实例
 java -jar jsTestDriver.jar --port 42442 --browser browserpath1,browserpath2
 
 //根据jsTestDriver.conf配置文件，载入js文件列表并运行test
 java -jar jsTestDriver.jar --tests all
-</pre>
+```
 
 完整的options可以用help命令查看 `java -jar jsTestDriver.jar --help`，也可以查看文档: <https://code.google.com/p/js-test-driver/wiki/CommandLineFlags>
 
@@ -61,7 +61,7 @@ qunit与jsTestDriver有几个区别:
 
 在目录结构上，两者也有一些不同:
 
-<pre class="prettyprint">
+```
     //jsTestDriver目录结构示例
     project-root/
         src/a.js
@@ -74,7 +74,7 @@ qunit与jsTestDriver有几个区别:
         test/
             testA.js
             testA.html    //jsTestDriver没有这样的文件
-</pre>
+```
 
 ### 在命令行下运行QUnit
 

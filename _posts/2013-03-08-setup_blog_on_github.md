@@ -73,15 +73,15 @@ GitHub Pages支持Jekyll，用户push到GitHub库的静态页面都会经过Jeky
 
 如果使用方式1，则先在github页面上创建一个repo, 然后执行如下命令将远程repo同步到本地:
 
-<pre class="prettyprint">
+```sh
     $ git clone https://github.com/username/jekyll_demo.git
-</pre>
+```
 
 然后，创建一个没有父节点的分支gh-pages。因为github规定，对于project pages, 只有该分支中的页面，才会生成网页文件。(请注意, user pages是在master上)
 
-<pre class="prettyprint">
+```sh
     $ git checkout --orphan gh-pages
-</pre>
+```
 
 接下来所有动作，都在分支gh-pages下完成.
 
@@ -89,12 +89,12 @@ GitHub Pages支持Jekyll，用户push到GitHub库的静态页面都会经过Jeky
 
 在jekyll_demo目录下创建如下文件和文件夹:
 
-<pre class="prettyprint">
+```
     jekyll_demo
         |- _layouts       用于存放模板文件的目录
         |- _posts         用于存放blog文章的目录
         |- _config.yml    jelyll的配置文件
-</pre>
+```
 
 '_config.yml'是jekyll的设置文件，具体解释参考 <https://github.com/mojombo/jekyll/wiki/Configuration>
 
@@ -102,7 +102,7 @@ GitHub Pages支持Jekyll，用户push到GitHub库的静态页面都会经过Jeky
 
 在_layouts目录下创建一个default.html，在其中输入如下内容（注意：文件本身要以UTF-8 without BOM的格式保存）:
 
-<pre class="prettyprint">
+```html
     &lt;!DOCTYPE html>
     &lt;html>
     &lt;head>
@@ -113,49 +113,49 @@ GitHub Pages支持Jekyll，用户push到GitHub库的静态页面都会经过Jeky
       &#123;&#123; content }}
     &lt;/body>
     &lt;/html>
-</pre>
+```
 
 目录结构变为:
 
-<pre class="prettyprint">
+```
     jekyll_demo
         |- _layouts
               |- default.html
         |- _posts
         |- _config.yml
-</pre>
+```
 
 #### 第四步，创建第一个blog
 
 进入 '_posts' 目录，创建第一篇文章。文章就是普通的文本文件，文件名假定为2013-03-09-hello-world.md(注意，文件名必须为"年-月-日-文章标题.后缀名"的格式)。Jekyll支持 md, textile, html等格式，Markdown语法参考 <http://daringfireball.net/projects/markdown/syntax>，文件内容如下:
 
-<pre class="prettyprint">
+```
     ---
     layout: default
     title: 你好，世界
     ---
 　　
     Hello, this is my first post
-</pre>
+```
 
 文件内容包括2部分，第一部分为 [YAML Front Matter](https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter), 第二部分是内容，内容会出现在第三步里 \{\{content}} 的位置。
 
 目录结构变成:
 
-<pre class="prettyprint">
+```
     jekyll_demo
         |- _layouts
               |- default.html
         |- _posts
               |- 2013-03-09-hello-world.md
         |- _config.yml
-</pre>
+```
 
 #### 第五步，创建首页
 
 回到根目录jekyll_demo，创建一个index.html文件，填入以下内容:
 
-<pre class="prettyprint">
+```html
     ---
     layout: default
     title: My Blog
@@ -166,13 +166,13 @@ GitHub Pages支持Jekyll，用户push到GitHub库的静态页面都会经过Jeky
             &lt;li>&#123;&#123; post.date | date:"%Y-%m-%d" }} &lt;a href="&#123;&#123; post.url }}">&#123;&#123; post.title }}&lt;/a>&lt;/li>
         &#123;% endfor %}
     &lt;/ul>
-</pre>
+```
 
 它的Yaml文件头表示，首页使用default模板，标题为"My Blog"。然后，对所有帖子进行一个遍历。
 
 目录结构变成:
 
-<pre class="prettyprint">
+```
     jekyll_demo
         |- _layouts
               |- default.html
@@ -180,22 +180,22 @@ GitHub Pages支持Jekyll，用户push到GitHub库的静态页面都会经过Jeky
               |- 2013-03-09-hello-world.md
         |- _config.yml
         |- index.html
-</pre>
+```
 
 #### 第六步，发布内容到GitHub
 
 现在，这个简单的Blog就可以发布到GitHub了。先把所有内容加入本地git库。
 
-<pre class="prettyprint">
+```sh
     $ git add .
     $ git commit -m "first post"
-</pre>
+```
 
 然后，将本地内容推送到github上。注意，下面命令中的username，要替换成你的username。
 
-<pre class="prettyprint">
+```sh
     $ git remote add origin https://github.com/username/jekyll_demo.git
     $ git push origin gh-pages
-</pre>
+```
 
 上传成功之后，等10分钟左右，访问http://username.github.com/jekyll_demo/就可以看到Blog已经生成了（将username换成你的用户名）

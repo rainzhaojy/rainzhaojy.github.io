@@ -23,20 +23,21 @@ Builder也是构造类，相当于Factory模式里的工厂类，但这里变的
 
 回到结构图里，Product 由3部分组成，假设构造一个 Product 的过程如下：
 
-<pre class="prettyprint">
+```
 PartA
 PartB
 PartC
-</pre>
+```
 
 在客户程序里，当然也可以自己来完成这样的构建过程，那么每个需要 Product 的地方都有这段代码，一者出现了相同代码的大量重复，二者构造 Product 的逻辑被分散在各个地方，如果这个逻辑有所变化，那么需要修改的地方就很多。 
 
 如果构造一个 Product 的过程变成下面 
-<pre class="prettyprint">
+
+```
 PartA
 PartB
 PartA
-</pre>
+```
 
 如果使用了Builder模式，只需要修改 Director 就可以了（Director里的construct方法）。
  

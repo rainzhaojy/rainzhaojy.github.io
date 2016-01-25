@@ -15,11 +15,12 @@ Decorator先看到一个已存在的类，然后通过 Decorator 来添加更多
 ###### 典型应用
 
 * 1) Java IO API就是使用 Decorator 实现的，例如如下代码： 
-<pre class="prettyprint">
+
+```java
     FileReader fReader = new FileReader("a.txt");
     BufferedReader reader = new BufferedReader(fReader);
     String s = reader.readLine();
-</pre>
+```
 
 BufferedReader 就是油漆工（decorator），FileReader就是被油漆的对象（decoratee），包装出了一个新的方法 readLine()
 

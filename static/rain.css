@@ -24,8 +24,8 @@
   color: white;
 }
 
-code {
-    background-color: #F0F0F0;
+.monospace {
+    background-color: yellow;
 }
 
 @media print {

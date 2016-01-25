@@ -6,6 +6,9 @@ $(document).ready(function() {
 
   //给普通文本增加highlightjs里的样式
   $(".text").addClass("hljs");
+
+  //给使用`text`生成的文本text加上样式
+  $("code:not([data-lang])").addClass("monospace");
   
   //初始化highlightjs
   $('pre code').each(function(i, block) {

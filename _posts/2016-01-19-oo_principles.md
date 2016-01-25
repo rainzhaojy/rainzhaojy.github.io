@@ -49,17 +49,6 @@ SOLID原则:
   </tbody>
 </table>
 
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
-```
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
 1. 封装变化 - 找出应用中可能需要变化之处, 把他们独立出来, 不要和那些不需要变化的代码混在一起
 2. Interface Driven - 针对接口编程, 而不是针对实现编程
 3. 多用组合, 少用继承

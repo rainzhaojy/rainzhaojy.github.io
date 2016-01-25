@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 使用GitHub搭建个人博客(3)定制模版
+title: 使用GitHub搭建个人博客(3)定制模版与语法扩展
 category: GitHub
 toc: true
 ---
@@ -164,64 +164,6 @@ $(".text").addClass("hljs");
 
 本站之前是在makrdown里直接写html文本实现表格支持, 并使用INK CSS样式定定制表格样式, 目前使用redcarpet.
 
-#### ~~使用Inline HTML + INK CSS实现表格~~(不推荐)
-
-本站使用了Ink，因此所有Ink的CSS样式也可以被使用，完整的Ink CSS样式请参考: <http://ink.sapo.pt/ui-elements/>. 下面是一个表格例子:
-
-```html
-<table class="ink-table bordered hover alternating">
-  <thead>
-    <tr>
-      <th class="align-left">ID</th>
-      <th class="align-left">Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="orange">
-      <td>1</td>
-      <td>John</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Will</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Steve</td>
-    </tr>
-  </tbody>
-</table>
-```
-
-效果如下:
-
-<table class="ink-table bordered hover alternating">
-  <thead>
-    <tr>
-      <th class="align-left">ID</th>
-      <th class="align-left">Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="orange">
-      <td>1</td>
-      <td>John</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Will</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Steve</td>
-    </tr>
-  </tbody>
-</table>
-
-虽然Inline HTML + Ink CSS可以实现非常多样的页面，但Ink样式是本站特有的，不容易移植，而且markdown文档包含Inline HTML会降低文档可读性，因此不推荐使用 Inline HTML 和 Ink CSS样式, 应该尽量用标准的markdown语法来写文档.
-
-#### 使用redcarpet实现表格(推荐)
-
 Inline HTML+INK CSS的写法比较麻烦, 而且在markdown夹杂html的写法也显得怪异, 因此目前改为 redcarpet tables + ink css, 这样就可以直接用markdown输出表格了.
 
 本站做了2个改动实现表格支持:
@@ -255,6 +197,24 @@ $("table").addClass("ink-table alternating hover bordered");
 | -------- | -------- |
 | cell 1   | cell 2   |
 | cell 3   | cell 4   |
+
+还可以定义对齐方式:
+
+```
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+```
+
+效果如下:
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
 ### TOC功能
 

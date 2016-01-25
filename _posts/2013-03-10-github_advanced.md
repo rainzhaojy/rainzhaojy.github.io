@@ -32,3 +32,5 @@ toc: true
 但如果你有自己的域名, 那么可以绑定域名, 请参考 <https://help.github.com/articles/setting-up-a-custom-domain-with-pages>
 
 譬如我的博客, github提供的地址为<http://rainzhaojy.github.io>, 但我绑定了自己的博客域名: <http://rainzhao.com>
+
+### Custom 404 page

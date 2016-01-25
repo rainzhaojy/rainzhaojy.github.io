@@ -103,16 +103,16 @@ GitHub Pages支持Jekyll，用户push到GitHub库的静态页面都会经过Jeky
 在_layouts目录下创建一个default.html，在其中输入如下内容（注意：文件本身要以UTF-8 without BOM的格式保存）:
 
 ```html
-    &lt;!DOCTYPE html>
-    &lt;html>
-    &lt;head>
-      &lt;meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      &lt;title>&#123;&#123; page.title }}&lt;/title>
-    &lt;/head>
-    &lt;body>
-      &#123;&#123; content }}
-    &lt;/body>
-    &lt;/html>
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <title>&#123;{ page.title }}</title>
+    </head>
+    <body>
+      &#123;{ content }}
+    </body>
+    </html>
 ```
 
 目录结构变为:
@@ -127,7 +127,7 @@ GitHub Pages支持Jekyll，用户push到GitHub库的静态页面都会经过Jeky
 
 #### 第四步，创建第一个blog
 
-进入 '_posts' 目录，创建第一篇文章。文章就是普通的文本文件，文件名假定为2013-03-09-hello-world.md(注意，文件名必须为"年-月-日-文章标题.后缀名"的格式)。Jekyll支持 md, textile, html等格式，Markdown语法参考 <http://daringfireball.net/projects/markdown/syntax>，文件内容如下:
+进入 '_posts' 目录，创建第一篇文章。文章就是普通的文本文件，文件名假定为2013-03-09-hello-world.md(注意，文件名必须为"年-月-日-文章标题.后缀名"的格式)。Jekyll支持 md, textile, html等格式，这里使用markdown，文件内容如下:
 
 ```
     ---
@@ -160,12 +160,12 @@ GitHub Pages支持Jekyll，用户push到GitHub库的静态页面都会经过Jeky
     layout: default
     title: My Blog
     ---
-    &lt;h2>文章列表&lt;/h2>
-    &lt;ul>
-        &#123;% for post in site.posts %}
-            &lt;li>&#123;&#123; post.date | date:"%Y-%m-%d" }} &lt;a href="&#123;&#123; post.url }}">&#123;&#123; post.title }}&lt;/a>&lt;/li>
+    <h2>文章列表</h2>
+    <ul>
+        \{\% for post in site.posts %}
+            <li>&#123;{ post.date | date:"%Y-%m-%d" }} <a href="&#123;{ post.url }}">&#123;{ post.title }}</a></li>
         &#123;% endfor %}
-    &lt;/ul>
+    </ul>
 ```
 
 它的Yaml文件头表示，首页使用default模板，标题为"My Blog"。然后，对所有帖子进行一个遍历。
@@ -198,4 +198,4 @@ GitHub Pages支持Jekyll，用户push到GitHub库的静态页面都会经过Jeky
     $ git push origin gh-pages
 ```
 
-上传成功之后，等10分钟左右，访问http://username.github.com/jekyll_demo/就可以看到Blog已经生成了（将username换成你的用户名）
+上传成功之后，等几分钟，访问 http://username.github.com/jekyll_demo 就可以看到Blog已经生成了.

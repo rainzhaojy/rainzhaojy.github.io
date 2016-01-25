@@ -25,7 +25,8 @@
 }
 
 .monospace {
-    background-color: yellow;
+    background-color: #f9f2f4;
+    color: #c7254e;
 }
 
 @media print {

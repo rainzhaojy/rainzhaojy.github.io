@@ -42,4 +42,5 @@ whereami: about
 
 ### Todo list
 
-* 打印时代码样式不对, google-code-prettify没有使用skin rain?
+* 选择某个category->打开某个blog->点击浏览器返回, 这时会显示所有category, 如果每个category有单独的URL, 譬如index.html?cate=github, 这样就可以解决浏览器返回的问题了
+* 文章显示last modified date

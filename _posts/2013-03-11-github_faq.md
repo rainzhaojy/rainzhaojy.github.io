@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 使用GitHub搭建个人博客(3)常见问题与回答
+title: 使用GitHub搭建个人博客(4)常见问题与回答
 category: GitHub
 ---
 
@@ -10,7 +10,7 @@ category: GitHub
 
 ##### 2. nested list not work?
 
-按照mark-down语法，缩进4个空格可以实现二级列表，但使用默认markdown解析器maruku不work，换成rdiscount就可以了, 在\_config.yml文件里加上配置项: `markdown: rdiscount`
+按照mark-down语法，缩进4个空格可以实现二级列表，但使用默认markdown解析器maruku不work，换成rdiscount或者redcarpet就可以了, 在\_config.yml文件里加上配置项: `markdown: rdiscount`
 
 ##### 3. categories 与 tags 有什么区别?
 
@@ -22,7 +22,7 @@ category只能有一个，tag可以有多个, <a href="http://stackoverflow.com/
 
 ##### 5: auto link 语法是什么?
 
-markdown支持auto link，格式为 &lt;url address>
+markdown支持auto link，rdiscount的格式为 `<url address>`, redcarpet直接写URL就会生成link
 
 ##### 6: 怎么给文章增加评论功能？
 
@@ -44,11 +44,11 @@ to be answered
 
 文章在kekyll编译后会变成一个html，url形如"/category/year/month/date/post_name.html", 那么在某个博客里要link另外一个post，url应该怎么写?也需要写这么长的url吗？
 
-博客地址为 &#123;% post_url 2013-03-08-setup_blog_on_github %}, 举例\[blog on github]\(&#123;% post_url 2013-03-08-setup_blog_on_github %}), 显示为[blog on github]({% post_url 2013-03-08-setup_blog_on_github %})
+博客地址为 <mark>&#123;% post_url 2013-03-08-setup_blog_on_github %}</mark>, 举例\[blog on github]\(&#123;% post_url 2013-03-08-setup_blog_on_github %}), 显示为[blog on github]({% post_url 2013-03-08-setup_blog_on_github %})
 
 ##### 11: 怎么输出表格？
 
-markdown并没有表格语法，可以直接写html，可以利用ink的CSS，参考 <http://ink.sapo.pt/index.php/tables>
+基本的markdown并没有表格语法，如果要输出表格, 可以直接写html，也可以使用支持表格语法的markdown engine, 譬如redcarpet
 
 ##### 12: 怎么输出table of contents?
 

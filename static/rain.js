@@ -5,7 +5,8 @@ $(document).ready(function() {
   categoryDisplay();
 
   //给普通文本增加highlightjs里的样式
-  $(".language-text").addClass("hljs");
+  //$("code.language-text").addClass("hljs");
+  $("code[data-lang='text']").addClass("hljs");
 
   //给使用`text`生成的文本text加上样式
   $("code:not([data-lang])").addClass("monospace");

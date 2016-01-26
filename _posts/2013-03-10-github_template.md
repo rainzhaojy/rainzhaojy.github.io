@@ -154,10 +154,11 @@ your text
 
 请注意, redcarpet输出的语言为"text", 但highlightjs并没有一种语言叫text, 因此不会做任何处理, 也没有定义任何样式, 最后出来的效果就是普通pre标签的效果, 没有任何css样式. 
 
-为了让普通文本也有基本的css样式, 我使用jquery代码初始化highlightjs, 并在初始化之前增加了highlightjs的css样式, 也就是给code标签增加css样式hljs:
+为了让普通文本也有基本的css样式, 我使用jquery给code标签增加css样式hljs, 下面是两种写法, 任选一个即可:
 
 ```js
-$(".text").addClass("hljs");
+$("code.language-text").addClass("hljs");     // 方法1
+$("code[data-lang='text']").addClass("hljs"); // 方法2
 ```
 
 ### 表格

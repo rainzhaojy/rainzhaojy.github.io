@@ -11,12 +11,12 @@ toc: true
 
 选择之前请先注意下面两个概念是不同的:
 
-* Github Flavored Markdown - [Github Flavored Markdown(GFM)](https://help.github.com/articles/github-flavored-markdown/)是Github自身的markdown engine, 用于转换github上所有的markdown文本, 包括issues, comments, and pull requests等
-* 你的个人博客的markdown engine - 利用github pages搭建个人博客时, 我们可以在站点的_config.yml里指定自己的markdown engine, 可以和GFM不同
+* Github Flavored Markdown(GFM), 参考[GFM](https://help.github.com/articles/github-flavored-markdown/)
+* 你的个人博客的markdown engine
 
-GFM支持了一些很有用的markdown扩展, 譬如 URL auto linking, fenced code blocks, syntax highlighting, table等等.
+GFW是Github自身的markdown engine, 用于转换github上的markdown文本, 包括issues, comments, and pull requests等, GFM支持了一些很有用的markdown扩展, 譬如 URL auto linking, fenced code blocks, syntax highlighting, table等等.
 
-利用Github Pages搭建个人博客时, 我们可以指定自己的markdown engine, 当然, 这些markdown engine必须是github支持的, 目前github pages支持下面几种markdown engine:
+利用Github Pages搭建个人博客时, 我们可以在站点的`_config.yml`里指定自己博客的markdown engine, 可以和GFM不同, 当然, 这些markdown engine必须是github支持的, 目前github pages支持下面几种markdown engine:
 
 * Maruku: 早期的GFM引擎, 已经很久没有更新了
 * Redcarpet: C实现
@@ -25,17 +25,15 @@ GFM支持了一些很有用的markdown扩展, 譬如 URL auto linking, fenced co
 
 Github Pages上各个引擎的版本参考 https://pages.github.com/versions
 
-本站最早使用rdiscount, 因为rdiscount支持autolink, 目前使用redcarpet, 因为redcarpet支持更多功能, 包括:
+本站最早使用rdiscount, 因为rdiscount支持autolink, 目前使用`redcarpet`, 因为redcarpet支持更多功能, 包括:
 
 * auto link - URL自动生成link
-* fenced code blocks
-* table
 * strikethrough - 在文本前后各加上两个`~`, ~~your text~~
 * no_intra_emphasis - 单词里的下划线不会被解释成斜体, 如果没有这个功能, `foo_bar`会变成 foo<em>bar</em>
 
-下面的章节会详细介绍这几个功能: fenced code blocks, table, 
+redcarpet还支持 fenced code blocks, table, 下面的章节会详细介绍.
 
-### 模板目录结构
+### 创建模板
 
 我的模版素材主要来源于:
 

@@ -19,7 +19,6 @@ whereami: about
 
 * 没有一步到位的架构, 够用就好, 要不断重构与迭代
 * 语言没有优劣, 适用就行
-* 没有解决不了的问题, 只要想解决
 * 简单最好, 要用简单的代码解决复杂的问题
 * 要善于整理工作日记, wiki+plantuml是很好的方式, markdown也不错
 * 多数问题都不是你独有的, 因此要善用google/stackoverflow等
@@ -43,5 +42,6 @@ whereami: about
 
 ### Todo list
 
-* 选择某个category->打开某个blog->点击浏览器返回, 这时会显示所有category, 如果每个category有单独的URL, 譬如index.html?cate=github, 这样就可以解决浏览器返回的问题了
+* 给每个category一个单独的URL, 譬如index.html?cate=github, 可以解决选择某个category->打开某个blog->点击浏览器返回会显示所有category的问题
 * 文章显示last modified date
+* 集成plantuml

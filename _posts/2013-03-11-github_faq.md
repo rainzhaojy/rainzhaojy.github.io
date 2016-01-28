@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 使用GitHub搭建个人博客(4)常见问题与回答
-category: GitHub
+tag: GitHub
 ---
 
 ##### 1. markdown, textile, html应该选择哪个格式写文档？
@@ -14,7 +14,7 @@ category: GitHub
 
 ##### 3. categories 与 tags 有什么区别?
 
-category只能有一个，tag可以有多个, <a href="http://stackoverflow.com/questions/8675841/whats-the-difference-between-categories-and-tags-in-jekyll">stackoverflow</a>上有人认为唯一区别就是blog生成的url不同
+category与tag都可以有多个, 两者的一个区别就是blog生成的url不同 (其实url也可以通过permalink修改), 另外tag好像是大小写敏感的
 
 ##### 4: 博客里怎么链接图片?
 

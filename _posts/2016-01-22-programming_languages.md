@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 你应该选择什么语言?
-category: design patterns
+tag: design patterns
 ---
 
 各种语言使用场景不同, 每个团队知识背景不同, 因此这个问题没有统一的答案, 这里只是摘抄一些各种语言的特点.

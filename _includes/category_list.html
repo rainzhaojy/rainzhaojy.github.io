@@ -2,11 +2,11 @@
 <hr/>
 <nav class="ink-navigation">
     <ul class="vertical menu grey">
-        <li><a href="javascript:;" class="categories-list-item" cate="All">
+        <li><a href="/index.html">
             All <span class="caution invert"> ({{site.posts | size}})</span>
         </a></li>
-        {% for category in site.categories %}
-        <li><a href="javascript:;" class="categories-list-item" cate="{{ category | first }}">{{ category | first }} <span class="caution invert">({{ category | last | size }})</span></a></li>
+        {% for tag in site.tags %}
+        <li><a href="/index.html?cate={{ tag | first }}">{{ tag | first }} <span class="caution invert">({{ tag | last | size }})</span></a></li>
         {% endfor %}
     </ul>
 </nav>

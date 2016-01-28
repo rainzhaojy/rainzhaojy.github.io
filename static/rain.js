@@ -27,13 +27,16 @@ $(document).ready(function() {
  * @return {[type]} [description]
  */
 function categoryDisplay() {
-    /*only show All*/
-    $('.post-list-body>div[post-cate!=All]').hide();
-    /*show category when click categories list*/
-    $('.categories-list-item').click(function() {
-        var cate = $(this).attr('cate'); //get category's name
+  var cate = getUrlParam('cate');
+  cate = cate || "All";
 
-        $('.post-list-body>div[post-cate!="' + cate + '"]').hide(250);
-        $('.post-list-body>div[post-cate="' + cate + '"]').show(400);
-    });
+  $('.post-list-body>div[post-cate!="' + cate + '"]').hide(250);
+  $('.post-list-body>div[post-cate="' + cate + '"]').show(400);
+}
+
+//获取url中的参数
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+    if (r != null) return unescape(r[2]); return null; //返回参数值
 }

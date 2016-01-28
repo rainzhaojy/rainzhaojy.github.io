@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 面向对象设计的几个原则
-category: design patterns
+tag: design patterns
 ---
 
 设计模式只是具体的招式, 理解面向对象的设计原则, 才能更好的使用设计模式, 并且能灵活的运用设计模式, 甚至创造适合自己项目的设计模式.

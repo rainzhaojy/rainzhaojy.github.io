@@ -42,6 +42,5 @@ whereami: about
 
 ### Todo list
 
-* 给每个category一个单独的URL, 譬如index.html?cate=github, 可以解决选择某个category->打开某个blog->点击浏览器返回会显示所有category的问题
 * 文章显示last modified date
 * 集成plantuml

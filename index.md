@@ -15,18 +15,17 @@ whereami: index
 #### 文章列表:
 
 <div class="post-list-body">
-    <div class="all-posts" post-cate="All">
+    <div post-cate="All">
         <ul>
             {% for post in site.posts %}
             <li>{{ post.date | date:"%Y-%m-%d" }} <a href="{{ post.url }}"> {{ post.title }}</a></li>
             {% endfor %}
         </ul>
     </div>
-    <!-- <div class="posts-in-categories"> -->
-    {% for category in site.categories %}
-      <div post-cate="{{category | first}}">
+    {% for tag in site.tags %}
+      <div post-cate="{{tag | first}}">
         <ul>
-        {% for posts in category  %}
+        {% for posts in tag  %}
           {% for post in posts %}
             {% if post.url %}
               <li>{{ post.date | date:"%Y-%m-%d" }} <a href="{{ post.url }}"> {{ post.title }}</a></li>
@@ -36,5 +35,4 @@ whereami: index
         </ul>
       </div>
     {% endfor %}
-    <!-- </div> -->
 </div>

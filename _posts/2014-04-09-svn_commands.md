@@ -1,7 +1,7 @@
 ---
 layout: post
 title: svn常用命令简介
-category: misc
+tag: misc
 ---
 
 ### vss, cvs, svn的区别

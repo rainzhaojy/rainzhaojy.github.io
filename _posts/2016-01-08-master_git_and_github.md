@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 玩转Git与GitHub
-category: GitHub
+tag: GitHub
 ---
 
 git是类似CVS/SVN的分布式源代码版本控制管理软件, github提供了git代码托管服务, 玩转git与github可以提高生产力, 拓宽知识面.

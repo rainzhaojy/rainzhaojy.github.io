@@ -1,37 +1,17 @@
 ---
 layout: post
 title: 使用GitHub搭建个人博客(3)定制模版与语法扩展
-category: GitHub
+tag: github
 toc: true
 ---
 
 一个简单的办法是找一个现成的模板, http://jekyllthemes.org 上面列出了很多模版, 但我在13年搭建博客时没有发现满意的模板，因此就自己做了一个, 15年又做了一些改进.
 
-### 使用哪一个markdown engine?
+自己创建模版需要了解这些知识:
 
-选择之前请先注意下面两个概念是不同的:
-
-* Github Flavored Markdown(GFM), 参考[GFM](https://help.github.com/articles/github-flavored-markdown/)
-* 你的个人博客的markdown engine
-
-GFW是Github自身的markdown engine, 用于转换github上的markdown文本, 包括issues, comments, and pull requests等, GFM支持了一些很有用的markdown扩展, 譬如 URL auto linking, fenced code blocks, syntax highlighting, table等等.
-
-利用Github Pages搭建个人博客时, 我们可以在站点的`_config.yml`里指定自己博客的markdown engine, 可以和GFM不同, 当然, 这些markdown engine必须是github支持的, 目前github pages支持下面几种markdown engine:
-
-* Maruku: 早期的GFM引擎, 已经很久没有更新了
-* Redcarpet: C实现
-* Rdiscount: C实现, supports a superset of Markdown.
-* kramdown(default): 目前的GFM使用kramdown
-
-Github Pages上各个引擎的版本参考 https://pages.github.com/versions
-
-本站最早使用rdiscount, 因为rdiscount支持autolink, 目前使用`redcarpet`, 因为redcarpet支持更多功能, 包括:
-
-* auto link - URL自动生成link
-* strikethrough - 在文本前后各加上两个`~`, ~~your text~~
-* no_intra_emphasis - 单词里的下划线不会被解释成斜体, 如果没有这个功能, `foo_bar`会变成 foo<em>bar</em>
-
-redcarpet还支持 fenced code blocks, table, 下面的章节会详细介绍.
+* html/css - 你要能够用html和css创建模版页面, 如果你的模版用到了js, 还要懂一些js
+* jekyll - 可以看一下[jekyll的官方文档](http://jekyllrb.com/docs/home)或者[jekyllbootstrap](http://jekyllbootstrap.com/lessons/jekyll-introduction.html)
+* liquid - 花2小时看一下[liquid for designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)
 
 ### 创建模板
 
@@ -40,7 +20,7 @@ redcarpet还支持 fenced code blocks, table, 下面的章节会详细介绍.
 * 样式参考了我之前jspwiki时的网站模版, 并使用了[INK CSS](http://ink.sapo.pt)方便实现各种CSS效果
 * 15年参考<http://jekyllthemes.org/themes/wiki-blog>做了一些修改
 
-如果你对jekyll已经比较了解，做一个简单的模板还是比较容易的，不了解jekyll的可以仔细看一下文档: <http://jekyllbootstrap.com/lessons/jekyll-introduction.html>,了解jekyll以后定义模板的主要工作其实就是CSS和UI设计了, 下面是我的目录结构:
+如果你对jekyll已经比较了解，做一个简单的模板还是比较容易的，主要工作其实就是CSS和UI设计, 下面是我的目录结构:
 
 ```
 rainzhaojy.github.io
@@ -69,6 +49,32 @@ rainzhaojy.github.io
 ```
 
 jekyll编译时会将.md文件转换成.html文件, 并放在\_site目录, 同时会将非下划线\_开头的目录直接拷贝到\_site目录下
+
+### 使用哪一个markdown engine?
+
+选择之前请先注意下面两个概念是不同的:
+
+* Github Flavored Markdown(GFM), 参考[GFM](https://help.github.com/articles/github-flavored-markdown/)
+* 你的个人博客的markdown engine
+
+GFW是Github自身的markdown engine, 用于转换github上的markdown文本, 包括issues, comments, and pull requests等, GFM支持了一些很有用的markdown扩展, 譬如 URL auto linking, fenced code blocks, syntax highlighting, table等等.
+
+利用Github Pages搭建个人博客时, 我们可以在站点的`_config.yml`里指定自己博客的markdown engine, 可以和GFM不同, 当然, 这些markdown engine必须是github支持的, 目前github pages支持下面几种markdown engine:
+
+* Maruku: 早期的GFM引擎, 已经很久没有更新了
+* Redcarpet: C实现
+* Rdiscount: C实现, supports a superset of Markdown.
+* kramdown(default): 目前的GFM使用kramdown
+
+Github Pages上各个引擎的版本参考 https://pages.github.com/versions
+
+本站最早使用rdiscount, 因为rdiscount支持autolink, 目前使用`redcarpet`, 因为redcarpet支持更多功能, 包括:
+
+* auto link - URL自动生成link
+* strikethrough - 在文本前后各加上两个`~`, ~~your text~~
+* no_intra_emphasis - 单词里的下划线不会被解释成斜体, 如果没有这个功能, `foo_bar`会变成 foo<em>bar</em>
+
+redcarpet还支持 fenced code blocks, table, 下面的章节会详细介绍.
 
 ### 代码高亮
 
@@ -232,7 +238,7 @@ toc: true
 
 ### 其他功能
 
-1. 使用js实现category
+1. 使用js实现category, 给每个category一个单独的URL, 譬如index.html?cate=github, 可以解决页面跳转后再返回的问题, 本站使用的是tag不是category
 2. inline code样式使用bootstrap里的样式: http://getbootstrap.com/customize/#code
 3. 利用css media screen适配不同屏幕尺寸
 4. 利用css media print定制打印样式

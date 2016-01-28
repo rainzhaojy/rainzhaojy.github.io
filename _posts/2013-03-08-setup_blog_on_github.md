@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 使用GitHub搭建个人博客(1)创建一个最简单的blog
-category: GitHub
+tag: GitHub
 toc: true
 ---
 

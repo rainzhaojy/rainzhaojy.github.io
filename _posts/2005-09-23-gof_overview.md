@@ -1,7 +1,7 @@
 ---
 layout: post
 title: GoF设计模式
-category: design patterns
+tag: design patterns
 toc: true
 ---
 

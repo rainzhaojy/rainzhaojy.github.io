@@ -1,7 +1,7 @@
 ---
 layout: post
 title: C++中的字符串类型
-category: misc
+tag: misc
 ---
 
 C++提供了ASCII码字符的数据类型和字符串处理函数，也定义了一组宽字符版本的数据类型和字符串处理函数:

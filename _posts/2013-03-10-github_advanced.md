@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 使用GitHub搭建个人博客(2)进阶设定
-tag: GitHub
+tag: github
 toc: true
 ---
 

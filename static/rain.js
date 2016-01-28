@@ -30,8 +30,8 @@ function categoryDisplay() {
   var cate = getUrlParam('cate');
   cate = cate || "All";
 
-  $('.post-list-body>div[post-cate!="' + cate + '"]').hide(250);
-  $('.post-list-body>div[post-cate="' + cate + '"]').show(400);
+  $('.post-list-body>div[post-cate!="' + cate + '"]').hide();
+  $('.post-list-body>div[post-cate="' + cate + '"]').show();
 }
 
 //获取url中的参数

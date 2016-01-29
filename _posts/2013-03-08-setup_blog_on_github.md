@@ -2,7 +2,6 @@
 layout: post
 title: 使用GitHub搭建个人博客(1)创建一个最简单的blog
 tag: github
-toc: true
 ---
 
 GitHub允许大家在GitHub上创建自己的博客网站或主页，而且免费，不限流量，还可以绑定自己的域名，因此利用GitHub搭建个人主页是个不错的选择。缺点是GitHub在国外，有时可能会慢一点，另外有一些技术门槛，但对于研发人员应该问题不大。

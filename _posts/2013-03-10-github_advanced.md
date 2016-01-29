@@ -2,7 +2,6 @@
 layout: post
 title: 使用GitHub搭建个人博客(2)进阶设定
 tag: github
-toc: true
 ---
 
 经过上一篇的介绍，我们已经在GitHub上搭建了一个最简单的blog，接下来我们介绍一些进阶设定。

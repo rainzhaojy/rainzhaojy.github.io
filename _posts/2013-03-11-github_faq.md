@@ -52,7 +52,7 @@ markdown不支持, 但可以使用变通办法, 一个办法是使用`<base targ
 
 ##### 12: 怎么输出table of contents?
 
-使用javascript: <http://www.kryogenix.org/code/browser/generated-toc>, <http://projects.jga.me/toc>, <http://ndabas.github.io/toc/> (本站使用这个)
+使用javascript: <http://www.kryogenix.org/code/browser/generated-toc>, <http://projects.jga.me/toc>, <http://ndabas.github.io/toc/>
 
 ##### 13. versions and modified date?
 

@@ -5,14 +5,6 @@
   background:#1a1a1a;
 }
 
-.tocbox {
-  max-width: 270px;
-  border-style: solid;
-  border-width: 1px;
-  margin: 3px;
-  padding: 3px;
-}
-
 .icon-white {color: white}
 
 .logoText {
@@ -28,6 +20,14 @@
     background-color: #f9f2f4;
     color: #c7254e;
     font-size: 90%;
+}
+
+.tocbox {
+  max-width: 270px;
+  border-style: solid;
+  border-width: 1px;
+  margin: 3px;
+  padding: 3px;
 }
 
 @media print {

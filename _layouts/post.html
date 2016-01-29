@@ -36,8 +36,12 @@
 
         {% if page.toc == true %}
         <script>
-        console.log("generate toc");
-        $('#toc').toc({headings: 'h1,h2,h3,h4'});
+        $('#toc').toc({
+            'selectors': 'h1,h2,h3',
+            'anchorName': function(i, heading, prefix) {
+                return prefix+i;
+            }
+        });
         if ($('#toc').children().length <= 0) {
             console.log("no toc");
             $('#tocbox').hide();

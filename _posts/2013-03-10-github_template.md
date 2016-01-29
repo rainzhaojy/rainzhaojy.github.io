@@ -223,7 +223,7 @@ $("table").addClass("ink-table alternating hover bordered");
 
 ### TOC功能
 
-本站使用jQuery插件<http://ndabas.github.io/toc/>实现TOC功能, 这个插件支持nested header, 本站配置为h1 - h4会被构建成toc, 另外, 使用page.toc变量决定是否显示toc, 默认page.toc为false, 因此默认没有toc, 如果想在博客上显示toc, 需要在博客文件开头的YAML部分定义`toc: true`.
+本站使用JavaScript实现TOC功能: https://github.com/jgallen23/toc 使用page.toc变量决定是否显示toc, 默认page.toc为false, 因此默认没有toc, 如果想在博客上显示toc, 需要在博客文件开头的YAML部分定义`toc: true`.
 
 如果想在博客里显示toc, 需要满足两个条件: `layout: post` & `toc: true`, 示例如下:
 

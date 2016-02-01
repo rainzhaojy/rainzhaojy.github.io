@@ -10,6 +10,7 @@ $(document).ready(function() {
 
   //给使用`text`生成的文本text加上样式
   $("code:not([data-lang])").addClass("monospace");
+  $('mark').addClass("monospace");
   
   //初始化highlightjs
   $('pre code').each(function(i, block) {
@@ -28,6 +29,7 @@ $(document).ready(function() {
  */
 function categoryDisplay() {
   var cate = getUrlParam('cate');
+  console.log("tag:", cate);
   cate = cate || "All";
 
   $('.post-list-body>div[post-cate!="' + cate + '"]').hide();
@@ -38,5 +40,5 @@ function categoryDisplay() {
 function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
     var r = window.location.search.substr(1).match(reg);  //匹配目标参数
-    if (r != null) return unescape(r[2]); return null; //返回参数值
+    if (r != null) return unescape(decodeURI(r[2])); return null; //返回参数值
 }

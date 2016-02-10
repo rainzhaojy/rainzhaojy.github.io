@@ -34,9 +34,10 @@ date: 2015-12-29
 
 之所以从 JSPWiki 转到 DokuWiki，有个简单的原因是Mac自带了 Apache，本机很容易搭建 PHP wiki engine，而DokuWiki是了解下来比较不错的 wiki engine.
 
-13年初开始使用GitHub Pages搭建个人博客，同时继续在本机使用dokuwiki+plantuml整理文档.
+13年初尝试使用GitHub Pages搭建个人博客，打开编辑器写markdown的方式还是不如wiki所见即所得的方式效率高, 因此继续在本机使用dokuwiki+plantuml整理文档, 这里的文章可能很少会更新.
 
 ### Todo list
 
 * 文章显示last modified date
 * 集成plantuml
+* github 2016/5/1将不再支持redcarpet, 需要换成kramdown

@@ -6,6 +6,8 @@ tag: design patterns
 
 各种语言使用场景不同, 每个团队知识背景不同, 因此这个问题没有统一的答案, 这里只是摘抄一些各种语言的特点.
 
+https://segmentfault.com/q/1010000000727790
+
 ### PHP与Python/Ruby的区别
 
 PHP和Python/Ruby的运行机制有一个本质区别：PHP是每次HTTP请求过来以后，初始化全部资源（例如创建数据库链接、加载系统类库，创建缓存等等），处理完毕，释放全部资源，这不像Python/Ruby之类带有GC的脚本语言，Python/Ruby是初次启动的时候初始化资源，随后的请求就不必再次初始化资源了。

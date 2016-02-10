@@ -76,7 +76,7 @@ qunit与jsTestDriver有几个区别:
             testA.html    //jsTestDriver没有这样的文件
 ```
 
-### 在命令行下运行QUnit
+### 利用PhantomJS在命令行下运行QUnit
 
 QUnit tests需要在浏览器里运行，jenkins用于组织CI流程，可以在Jenkins里运行QUnit测试吗? Jenkins一般是执行bat脚本或者shell脚本，如果QUnit可以在command line下执行，那么就可以由jenkins执行了。那么，如何脱离浏览器，在command line下执行qunit tests呢？
 

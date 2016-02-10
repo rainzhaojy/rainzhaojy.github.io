@@ -34,7 +34,9 @@ date: 2015-12-29
 
 之所以从 JSPWiki 转到 DokuWiki，有个简单的原因是Mac自带了 Apache，本机很容易搭建 PHP wiki engine，而DokuWiki是了解下来比较不错的 wiki engine.
 
-13年初尝试使用GitHub Pages搭建个人博客，打开编辑器写markdown的方式还是不如wiki所见即所得的方式效率高, 因此继续在本机使用dokuwiki+plantuml整理文档, 这里的文章可能很少会更新.
+13年初尝试使用GitHub Pages搭建个人博客，创建了自己的模版, 申请了个人域名rainzhao.com, 希望能和其他人分享学习笔记.
+
+打开编辑器写markdown的方式还是不如wiki所见即所得的方式效率高, 因此继续在本机使用dokuwiki+plantuml整理文档, 这里的文章可能很少会更新.
 
 ### Todo list
 

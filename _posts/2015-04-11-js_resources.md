@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JavaScript相关资源
-tags: javascript 资源汇总
+tags: javascript
 ---
 
 Quick Link:

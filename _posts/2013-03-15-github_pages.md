@@ -1,12 +1,8 @@
 ---
 layout: post
-title: 利用GitHub写博客的几种方式
+title: 什么是github pages?
 tag: github
 ---
-
-搭建个人blog站点有很多方案, 知乎问答[FarBox、Jekyll、Octopress、ghost、marboo、Hexo、Medium、Logdown、prose.io，这些博客程序有什么特点](http://www.zhihu.com/question/21981094)介绍了个人blog的几个方案, 本文主要介绍github.
-
-网上有很多介绍基于github pages搭建blog的方法, 但介绍的一般是常见的做法, 使用Github Pages来整理个人笔记还有其他几种方式, 本文将一一介绍.
 
 这不是一个step by step guide, 这里会介绍相关的一些知识点. 关于Github Pages, 可以参考官网介绍: [github pages basics](https://help.github.com/categories/github-pages-basics)与[github pages features](https://help.github.com/categories/github-pages-features). 关于如何使用github pages搭建blog, 可以参考[使用GitHub搭建个人博客(1)创建一个最简单的blog]({% post_url 2013-03-08-setup_blog_on_github %})
 
@@ -23,7 +19,7 @@ tag: github
 * liquid模版引擎, 语法类似 <mark>&#123;{ something }}</mark>, <mark>&#123;% something %}</mark>
     * liquid文档[liquid for designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers), http://liquidmarkup.org
 
-Github Pages基于上述技术.
+Github Pages基于这几个技术: markdown, jekyll, liquid
 
 ### User page and project page
 
@@ -39,37 +35,8 @@ Github Pages提供两种pages, 一种是user/org pages, 另一种是project page
 
 W3C是一个使用github pages的一个很好的例子, w3c是github帐号名, 在user pages上定义了如何定义w3c spec, 即在repo "w3c.github.io" (对应的repo地址为 https://github.com/w3c/w3c.github.io ), 我们可以使用URL http://w3c.github.io 访问对应页面, 每一个spec都对应了一个project repo, 譬如webrtc, 文档定义在repo "webrtc-pc"的分支"gh-pages"下面, 对应的URL为 http://w3c.github.io/webrtc-pc
 
-### 方法1: Jekyll
+### 利用Jekyll搭建个人博客
 
 Github pages基于Jekyll, 因此最基本的方式就是使用jekyll搭建blog, 多数的网上教程介绍的都是这种, 你可以选择user page或者project page, 在这种方式下, 就是按照jekyll要求的目录结构利用markdown写blog, 提交到github后, github会使用jekyll编译你的blog, 然后host你的blog, 也就是host目录`_site`下的静态页面.
 
 这是最常见的方法, 但你也可以有很多变通办法来整理博客, 下面会介绍几种.
-
-### 方法2: Hexo
-
-Github Pages其实等于jekyll engine + static web server, 利用jekyll搭建blog的方式这两个功能都用到了.
-
-我们也可以不使用jekyll engine, 只利用static web server这个功能, 也就是说, 直接上传静态站点文件html/css/javascript/image等等, 让Github Pages帮我们host这些静态页面.
-
-Hexo + Github pages搭建blog其实就是只利用了github pages的static web server功能, hexo基于node.js, hexo在本机将用户的blog翻译成静态页面, 然后将这些静态页面上传到github上, 由github pages的static web server部署这些静态页面. 
-
-hexo与jekyll的主要区别是: 
-
-* md到html的转换时机不同, hexo在本机完成, jekyll是由github pages完成
-* 提交到github库里的文件不同, hexo是提交转换后的静态页面, jekyll是提交转换前的md文件
-
-我们可以使用hexo在本机写博客, 然后上传静态文件到github, 我们也可以使用其他模版引擎在本机写博客, 其实方法1里, 我们如果利用本机jekyll编译出静态文件, 然后只提交这些静态文件, 这样的做法和Hexo是一样的, 或者, 你也可以使用任何一种模版引擎 (https://github.com/coffee-js/languages/wiki/static-blog-tools)来生成静态博客站点, 当然, 你也可以直接写html.
-
-### 方法3: 直接在repo里提交markdown
-
-github建议每个项目都提供一个README.md文件, 在网页上浏览项目或子目录时, github会自动显示当前目录里的README.md文件, 利用这一功能, 也有人直接提交markdown文件, 譬如 https://github.com/kilimchoi/engineering-blogs, 这样也是一种方法, 只是打开你的blog时上面会先看到file list.
-
-这样的做法其实就是把博客的md文件当成源代码一样提交到github里.
-
-### 方法4: 利用issue写博客
-
-利用github issues写博客也是一种做法. 譬如https://github.com/lifesinger/blog/issues, https://github.com/jikeytang/jikeytang.github.io/issues 和 https://github.com/jsfront, 知乎有人解释了为什么用issues写博客: https://www.zhihu.com/question/32066000
-
-### 方法5: 利用wiki写博客
-
-github wiki当然也可以写博客, github上每一个projec都有一个对应的wiki, 你可以在这里写博客, 譬如 https://github.com/coffee-js/languages/wiki

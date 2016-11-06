@@ -19,12 +19,12 @@ date: 2015-12-29
 ### 对待技术的看法
 
 * 没有一步到位的架构, 够用就好, 要不断重构与迭代
-* 语言没有优劣, 适用就行
-* 简单最好, 要用简单的代码解决复杂的问题
+* 没有技术崇拜, 适合的就是最好的
+* 简单至上: If you don’t actively fight for simplicity in software, complexity will win, and it will suck
 * 要善于整理工作日记, wiki+plantuml是很好的方式, markdown也不错
 * 多数问题都不是你独有的, 因此要善用google/stackoverflow等
 * 代码加适当的注释是最好的文档
-* 静下心来自学比找人讨论和培训效率更高
+* 软件是工程与艺术的结合
 
 ### 个人建站经历
 
@@ -36,10 +36,11 @@ date: 2015-12-29
 
 13年初尝试使用GitHub Pages搭建个人博客，创建了自己的模版, 申请了个人域名rainzhao.com.
 
-打开编辑器写markdown的方式还是不如wiki所见即所得的方式效率高, 决定还是放弃github pages, 继续在本机使用dokuwiki+plantuml整理文档, 因此这里的文章可能很少会更新.
+打开编辑器写markdown的方式还是不如wiki所见即所得的方式效率高, 决定还是放弃github pages, 继续在本机使用dokuwiki+plantuml整理文档, 因此这里的文章不再更新.
+
+如果要和人共享, 就使用github issues整理文档.
 
 ### Todo list
 
 * 文章显示last modified date
 * 集成plantuml
-* github 2016/5/1将不再支持redcarpet, 需要换成kramdown

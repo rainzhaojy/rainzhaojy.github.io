@@ -23,8 +23,6 @@ GitHub 是一个商业公司，提供源代码托管服务，使用Git实现版�
 
 GitHub除了提供免费源代码托管空间，还为程序员提供了一个社交平台，在GitHub有多种和别人的互动方式，可以fork别人的项目后提交pull request贡献自己的代码，可以watch某个人或某个项目，等等。
 
-更多git和github可以参考[玩转git与github]({% post_url 2016-01-08-master_git_and_github %})
-
 GitHub帐号可以免费注册，因此，去免费注册一个账号吧.
 
 ### GitHub Pages

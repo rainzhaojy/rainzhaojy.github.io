@@ -1,3 +1,5 @@
+// rewrite console methods to output logs to div
+// and define method window.clearConsole()
 (function() {
     var loggerDiv = document.getElementById('log');
     if (!loggerDiv) {
@@ -40,4 +42,9 @@
     console.info = _info;
     console.warn = _warn;
     console.error = _error;
+
+    var _clearConsole = () => {
+        loggerDiv.innerHTML = '';
+    };
+    window.clearConsole = _clearConsole;
 })();
